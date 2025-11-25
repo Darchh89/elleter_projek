@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_image"
+    tools:context=".MainActivity">
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardGlass"
+        android:layout_width="345dp"
+        android:layout_height="407dp"
+        android:layout_margin="32dp"
+        android:alpha="1"
+        android:backgroundTint="#CCFFFFFF"
+        android:padding="24dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="E - Letter"
+                android:textColor="#106F85"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/subtitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Sistem Manajemen Surat dan Dispensasi"
+                android:textColor="#106F85"
+                android:textSize="14sp" />
+
+            <!-- Keterangan bawah -->
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGuru"
+                android:layout_width="263dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:backgroundTint="#106F85"
+                android:padding="12dp"
+                android:text="Lanjutkan sebagai Guru"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                app:backgroundTint="#1F2937"
+                app:cornerRadius="12dp"
+                app:icon="@drawable/book"
+                app:iconGravity="textStart"
+                app:iconPadding="8dp"
+                app:iconTint="@android:color/white" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSiswa"
+                android:layout_width="263dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bt_transparan"
+                android:padding="12dp"
+                android:text="Lanjutkan sebagai Siswa"
+                android:textAllCaps="false"
+                android:textColor="#106F85"
+                app:backgroundTint="#FFFFFF"
+                app:cornerRadius="12dp"
+                app:icon="@drawable/material_symbols_person"
+                app:iconGravity="textStart"
+                app:iconPadding="8dp"
+                app:strokeColor="#000000"
+                 />
+
+
+            <TextView
+                android:id="@+id/textBottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="8dp"
+                android:text="Pilih peran anda untuk melanjutkan"
+                android:textColor="#333333"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
