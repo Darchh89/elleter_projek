@@ -12,7 +12,7 @@
         android:id="@+id/ViewBuatAkun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="88dp"
         android:fontFamily="@font/montserrat_extrabold"
         android:gravity="center"
         android:text="Buat Akun"
@@ -46,6 +46,7 @@
         android:background="@drawable/inputbergambar"
         android:drawableStart="@drawable/person_picture"
         android:drawablePadding="12dp"
+        android:fontFamily="@font/montserrat_semibold"
         android:hint="Masukan Nama Lengkap"
         android:inputType="textPersonName"
         android:paddingStart="16dp"
@@ -74,41 +75,61 @@
         app:layout_constraintStart_toStartOf="@+id/editTextNamaLengkap"
         app:layout_constraintTop_toBottomOf="@+id/editTextNamaLengkap" />
 
-    <EditText
-        android:id="@+id/editTextNamaLengkap3"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordInputLayout"
         android:layout_width="0dp"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:background="@drawable/inputbergambar"
-        android:drawableStart="@drawable/gembok"
-        android:drawablePadding="12dp"
-        android:hint="Masukan Password"
-        android:inputType="textPassword"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:textColor="#000000"
-        android:textSize="16sp"
+        app:boxBackgroundMode="none"
+        app:endIconMode="password_toggle"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="@+id/editTextNamaLengkap2"
         app:layout_constraintStart_toStartOf="@+id/editTextNamaLengkap2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNamaLengkap2" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNamaLengkap2">
 
-    <EditText
-        android:id="@+id/editTextNamaLengkap5"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextNamaLengkap3"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/inputbergambar"
+            android:drawableStart="@drawable/gembok"
+            android:drawablePadding="12dp"
+            android:hint="Masukan Password"
+            android:inputType="textPassword"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/confirmPasswordInputLayout"
         android:layout_width="0dp"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:background="@drawable/inputbergambar"
-        android:drawableStart="@drawable/gembok"
-        android:drawablePadding="12dp"
-        android:hint="Konfirmasi Password"
-        android:inputType="textPassword"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNamaLengkap3"
-        app:layout_constraintStart_toStartOf="@+id/editTextNamaLengkap3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNamaLengkap3" />
+        app:boxBackgroundMode="none"
+        app:endIconMode="password_toggle"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="@+id/passwordInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/passwordInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/passwordInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextNamaLengkap5"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/inputbergambar"
+            android:drawableStart="@drawable/gembok"
+            android:drawablePadding="12dp"
+            android:hint="Konfirmasi Password"
+            android:inputType="textPassword"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <EditText
         android:id="@+id/editTextNamaLengkap6"
@@ -124,9 +145,9 @@
         android:paddingEnd="16dp"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNamaLengkap5"
-        app:layout_constraintStart_toStartOf="@+id/editTextNamaLengkap5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNamaLengkap5" />
+        app:layout_constraintEnd_toEndOf="@+id/confirmPasswordInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/confirmPasswordInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/confirmPasswordInputLayout" />
 
 
     <Button
@@ -134,7 +155,7 @@
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginTop="26dp"
-        android:backgroundTint="#106F85"
+        android:backgroundTint="@color/rasi"
         android:fontFamily="@font/montserrat_extrabold"
         android:text="Daftar"
         android:textColor="@color/white"
@@ -152,14 +173,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="81dp"
-        android:layout_marginBottom="140dp"
         android:text="Sudah punya akun?"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/ButtonMasuk"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="@+id/ButtonMasuk"
-        app:layout_constraintTop_toBottomOf="@+id/ButtonMasuk" />
+        app:layout_constraintTop_toBottomOf="@+id/ButtonMasuk"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/DaftarView"
@@ -167,15 +188,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="81dp"
         android:layout_marginEnd="129dp"
-        android:layout_marginBottom="140dp"
-        android:text="Daftar"
+        android:text="Masuk"
         android:textColor="#106F85"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/punyaAkunView"
-        app:layout_constraintTop_toBottomOf="@+id/ButtonMasuk" />
+        app:layout_constraintTop_toBottomOf="@+id/ButtonMasuk"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
