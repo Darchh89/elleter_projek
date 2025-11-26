@@ -8,6 +8,73 @@
     android:background="@color/white"
     tools:context=".masuk_siswa">
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="27dp"
+        android:layout_height="66dp"
+        android:elevation="10dp"
+        app:srcCompat="@drawable/img"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="182dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="318dp"
+        android:layout_height="31dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="center"
+        android:text="Bergabung dengan sistem E-Letter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.168" />
+
+    <EditText
+        android:id="@+id/passwordDaftar"
+        android:layout_width="360dp"
+        android:layout_height="55dp"
+        android:background="@drawable/input_kotak"
+        android:elevation="10dp"
+        android:ems="10"
+        android:hint="Konfirmasi Kata Sandi"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.549" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kembali ke Halaman Utama"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.151"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.018" />
+
+    <TextView
+        android:id="@+id/textDaftar"
+        android:layout_width="105dp"
+        android:layout_height="57dp"
+        android:backgroundTint="#375FE5"
+        android:clickable="true"
+        android:text="Daftar"
+        android:textColor="#106F85"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.986" />
+
     <EditText
         android:id="@+id/PasswordDaftar"
         android:layout_width="360dp"
@@ -15,13 +82,14 @@
         android:background="@drawable/input_kotak"
         android:elevation="10dp"
         android:ems="10"
-        android:hint="Kata Sandi"
+        android:hint="Masukkan Kata Sandi"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.464" />
 
     <EditText
         android:id="@+id/PWDaftar"
@@ -37,7 +105,7 @@
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.422" />
+        app:layout_constraintVertical_bias="0.383" />0
 
     <EditText
         android:id="@+id/NamaDaftar"
@@ -46,39 +114,27 @@
         android:background="@drawable/input_kotak"
         android:elevation="10dp"
         android:ems="10"
-        android:hint="Nama Lengkap"
+        android:hint="Masukkan Nama Lengkap"
         android:inputType="textEmailAddress"
         android:shadowColor="#000000"
+        app:icon="@drawable/book"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp"
+        app:iconTint="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.342" />
-
-    <TextView
-        android:id="@+id/TextDaftar"
-        android:layout_width="105dp"
-        android:layout_height="57dp"
-        android:backgroundTint="#375FE5"
-        android:clickable="true"
-        android:text="Daftar"
-        android:textColor="#375FE5"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.901"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.986" />
+        app:layout_constraintVertical_bias="0.296" />
 
     <TextView
         android:id="@+id/textView11"
-        android:layout_width="201dp"
-        android:layout_height="57dp"
-        android:fontFamily="@font/open_sans_light"
+        android:layout_width="295dp"
+        android:layout_height="50dp"
+        android:fontFamily="@font/montserrat_extrabold"
         android:gravity="center"
-        android:text="E - Letter"
+        android:text="BUAT AKUN"
         android:textColor="#000000"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -86,32 +142,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.129" />
+        app:layout_constraintVertical_bias="0.122" />
 
     <Button
         android:id="@+id/ButtonMasuk"
         android:layout_width="360dp"
         android:layout_height="55dp"
-        android:backgroundTint="#375FE5"
+        android:backgroundTint="#106F85"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Daftar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.595" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="184dp"
-        android:layout_height="25dp"
-        android:text="Log in with Google"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.66"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.832" />
+        app:layout_constraintVertical_bias="0.677" />
 
     <TextView
         android:id="@+id/BtnDaftar"
