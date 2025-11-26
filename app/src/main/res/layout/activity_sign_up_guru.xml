@@ -95,15 +95,16 @@
         android:layout_height="57dp"
         android:backgroundTint="#375FE5"
         android:clickable="true"
-        android:text="Daftar"
+        android:gravity="center"
+        android:text="Masuk"
         android:textColor="#375FE5"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.901"
+        app:layout_constraintHorizontal_bias="0.79"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.986" />
+        app:layout_constraintVertical_bias="0.968" />
 
     <TextView
         android:id="@+id/textView11"
