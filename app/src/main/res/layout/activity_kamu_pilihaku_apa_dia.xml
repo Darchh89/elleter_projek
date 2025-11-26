@@ -52,7 +52,6 @@
 
             <!-- Keterangan bawah -->
 
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnGuru"
                 android:layout_width="263dp"
@@ -69,6 +68,7 @@
                 app:iconGravity="textStart"
                 app:iconPadding="8dp"
                 app:iconTint="@android:color/white" />
+
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSiswa"
