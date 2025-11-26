@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 public class ApiClient {
 
 
-    private static final String BASE_URL = "http://192.168.1.8:3000/api/";
+    private static final String BASE_URL = "http://192.168.137.1:3000/api/";
 
     /*
      * Jika backend berjalan di komputer lokal dan diuji dengan HP Fisik:
