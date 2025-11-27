@@ -4,15 +4,14 @@ import com.google.gson.annotations.SerializedName;
 
 public class LoginRequest {
 
-    @SerializedName("email")
-    private String email;
+    @SerializedName("user_code")
+    private String userCode;
 
     @SerializedName("password")
     private String password;
 
-    public LoginRequest(String email, String password) {
-        this.email = email;
+    public LoginRequest(String userCode, String password) {
+        this.userCode = userCode;
         this.password = password;
     }
 }
-    

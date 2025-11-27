@@ -1,4 +1,4 @@
-package com.example.eletterprojek; // Pastikan nama package ini sesuai dengan proyek Anda
+package com.example.eletterprojek;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,48 +10,30 @@ import com.google.android.material.button.MaterialButton;
 
 public class KamuPilihakuApaDia extends AppCompatActivity {
 
-    private MaterialButton buttonGuru;
-    private MaterialButton buttonSiswa;
-    private MaterialButton buttonPembina;
-
-
+    private MaterialButton btnGuru;
+    private MaterialButton btnSiswa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kamu_pilihaku_apa_dia);
+        btnGuru = findViewById(R.id.btnGuru);
+        btnSiswa = findViewById(R.id.btnSiswa);
 
-        buttonGuru = findViewById(R.id.btnGuru);
-        buttonSiswa = findViewById(R.id.btnSiswa);
-
-
-
-        buttonGuru.setOnClickListener(new View.OnClickListener() {
+        btnGuru.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openSigninGuruPage();
-            }
-        });
-        buttonSiswa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openSigninSiswaPage();
+                Intent intent = new Intent(KamuPilihakuApaDia.this, SignUpGuru.class);
+                startActivity(intent);
             }
         });
 
-
-
+        btnSiswa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(KamuPilihakuApaDia.this, login_siswa.class);
+                startActivity(intent);
+            }
+        });
     }
-    private void openSigninGuruPage() {
-
-        Intent intent = new Intent(KamuPilihakuApaDia.this, SignUpGuru.class);
-        startActivity(intent);
-    }
-    private void openSigninSiswaPage() {
-
-        Intent intent = new Intent(KamuPilihakuApaDia.this, masuk_siswa.class);
-        startActivity(intent);
-    }
-
-
 }

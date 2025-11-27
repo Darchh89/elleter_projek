@@ -16,113 +16,133 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <EditText
-            android:id="@+id/PWDaftar"
-            android:layout_width="360dp"
-            android:layout_height="55dp"
-            android:background="@drawable/input_kotak"
-            android:elevation="10dp"
-            android:ems="10"
-            android:hint="Kata Sandi"
-            android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.452"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.423" />
-
-        <EditText
-            android:id="@+id/NamaDaftar"
-            android:layout_width="360dp"
-            android:layout_height="55dp"
-            android:background="@drawable/input_kotak"
-            android:elevation="10dp"
-            android:ems="10"
-            android:hint="ID"
-            android:inputType="textEmailAddress"
-            android:shadowColor="#000000"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.452"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.343" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/TextDaftar"
             android:layout_width="105dp"
             android:layout_height="57dp"
-            android:backgroundTint="#375FE5"
+            android:layout_marginTop="81dp"
+            android:backgroundTint="#FF7235"
             android:clickable="true"
             android:text="Daftar"
             android:textColor="#375FE5"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.84"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.98" />
+            app:layout_constraintHorizontal_bias="0.272"
+            app:layout_constraintStart_toEndOf="@+id/BtnDaftar"
+            app:layout_constraintTop_toBottomOf="@+id/buttonMasuk" />
 
         <TextView
             android:id="@+id/textView11"
             android:layout_width="201dp"
             android:layout_height="57dp"
-            android:fontFamily="@font/open_sans_light"
+            android:layout_marginTop="88dp"
+            android:fontFamily="@font/montserrat_extrabold"
             android:gravity="center"
             android:text="E - Letter"
             android:textColor="#000000"
             android:textSize="36sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.118" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView12"
             android:layout_width="156dp"
             android:layout_height="30dp"
+            android:layout_marginTop="7dp"
             android:gravity="center_vertical|end"
             android:text="Lupa Kata Sandi?"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.871"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.473" />
+            app:layout_constraintEnd_toEndOf="@+id/editTextNamaLengkap7"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNamaLengkap7" />
 
         <Button
-            android:id="@+id/ButtonMasuk"
-            android:layout_width="360dp"
+            android:id="@+id/buttonMasuk"
+            android:layout_width="0dp"
             android:layout_height="55dp"
-            android:backgroundTint="#ea5c2c"
+            android:layout_marginTop="60dp"
+            android:backgroundTint="#FF7235"
+            android:fontFamily="@font/montserrat_extrabold"
             android:text="Masuk"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.301"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.605" />
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:icon="@drawable/pintuuuu"
+            app:iconGravity="textStart"
+            app:iconPadding="10dp"
+            app:iconTint="@null"
+            app:layout_constraintEnd_toEndOf="@+id/editTextNamaLengkap7"
+            app:layout_constraintStart_toStartOf="@+id/editTextNamaLengkap7"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNamaLengkap7" />
 
         <TextView
             android:id="@+id/BtnDaftar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="81dp"
+            android:fontFamily="@font/nunito_medium"
             android:text="Belum punya akun?"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/buttonMasuk"
+            app:layout_constraintStart_toStartOf="@+id/buttonMasuk"
+            app:layout_constraintTop_toBottomOf="@+id/buttonMasuk" />
+
+        <EditText
+            android:id="@+id/editTextNamaLengkap4"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/inputbergambar"
+            android:drawableStart="@drawable/tagoren"
+            android:drawablePadding="12dp"
+            android:hint="Masukan NIP"
+            android:inputType="text"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.403"
+            app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.944" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewBergabung" />
+
+        <TextView
+            android:id="@+id/textViewBergabung"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:text="Bergabung dengan sistem E-Letter"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextNamaLengkap7"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/inputbergambar"
+            android:drawableStart="@drawable/gboren"
+            android:drawablePadding="12dp"
+            android:hint="Masukan Password"
+            android:inputType="textPassword"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/editTextNamaLengkap4"
+            app:layout_constraintStart_toStartOf="@+id/editTextNamaLengkap4"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNamaLengkap4" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,109 +8,139 @@
     android:background="@color/white"
     tools:context=".login_siswa">
 
-    <EditText
-        android:id="@+id/PWDaftar"
-        android:layout_width="273dp"
-        android:layout_height="59dp"
-        android:background="@drawable/input_kotak"
-        android:elevation="10dp"
-        android:ems="10"
-        android:hint="Kata Sandi"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/buttonMasuk2"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#FF7235"
+        android:fontFamily="@font/montserrat_extrabold"
+        android:text="Masuk"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:icon="@drawable/pintuuuu"
+        app:iconGravity="textStart"
+        app:iconPadding="10dp"
+        app:iconTint="@null"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNamaLengkap7"
+        app:layout_constraintStart_toStartOf="@+id/editTextNamaLengkap7"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNamaLengkap7" />
+
+    <TextView
+        android:id="@+id/textViewBergabung"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="center"
+        android:text="Bergabung dengan sistem E-Letter"
+        android:textColor="@color/black"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <EditText
-        android:id="@+id/NamaDaftar"
-        android:layout_width="278dp"
+        android:id="@+id/editTextNamaLengkap4"
+        android:layout_width="0dp"
         android:layout_height="55dp"
-        android:background="@drawable/input_kotak"
-        android:elevation="10dp"
-        android:ems="10"
-        android:hint="ID"
-        android:inputType="textEmailAddress"
-        android:shadowColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/inputbergambar"
+        android:drawableStart="@drawable/tagoren"
+        android:drawablePadding="12dp"
+        android:hint="Masukan NIP"
+        android:inputType="text"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="#000000"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.409" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewBergabung" />
+
 
     <TextView
         android:id="@+id/TextDaftar"
         android:layout_width="105dp"
         android:layout_height="57dp"
+        android:layout_marginTop="82dp"
         android:backgroundTint="#375FE5"
         android:clickable="true"
         android:text="Daftar"
         android:textColor="#375FE5"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.846"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.998" />
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toEndOf="@+id/BtnDaftar"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMasuk2" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="201dp"
         android:layout_height="57dp"
-        android:fontFamily="@font/open_sans_light"
+        android:layout_marginTop="88dp"
+        android:fontFamily="@font/montserrat_extrabold"
         android:gravity="center"
         android:text="E - Letter"
         android:textColor="#000000"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.129" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="151dp"
-        android:layout_height="33dp"
+        android:layout_width="142dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="7dp"
         android:gravity="center_vertical|end"
         android:text="Lupa Kata Sandi?"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.884"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.562" />
-
-    <Button
-        android:id="@+id/ButtonMasuk"
-        android:layout_width="294dp"
-        android:layout_height="49dp"
-        android:backgroundTint="#EA5C2C"
-        android:text="Masuk"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.647" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextNamaLengkap7"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNamaLengkap7" />
 
     <TextView
         android:id="@+id/BtnDaftar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="82dp"
+        android:layout_marginEnd="10dp"
         android:text="Belum punya akun?"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.367"
+        app:layout_constraintHorizontal_bias="0.589"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.961" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonMasuk2" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editTextNamaLengkap7"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/inputbergambar"
+        android:drawableStart="@drawable/gboren"
+        android:drawablePadding="12dp"
+        android:hint="Masukan Password"
+        android:inputType="textPassword"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNamaLengkap4"
+        app:layout_constraintStart_toStartOf="@+id/editTextNamaLengkap4"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNamaLengkap4" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kembali ke Halaman Utama"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="37dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,7 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ViewBuatAkun" />
 
     <EditText
-        android:id="@+id/editTextNamaLengkap"
+        android:id="@+id/NamaLengkap"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginStart="24dp"
@@ -58,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/TextViewBergabung" />
 
     <EditText
-        android:id="@+id/editTextNamaLengkap2"
+        android:id="@+id/NipGuru"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginTop="6dp"
@@ -71,9 +71,9 @@
         android:paddingEnd="16dp"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNamaLengkap"
-        app:layout_constraintStart_toStartOf="@+id/editTextNamaLengkap"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNamaLengkap" />
+        app:layout_constraintEnd_toEndOf="@+id/NamaLengkap"
+        app:layout_constraintStart_toStartOf="@+id/NamaLengkap"
+        app:layout_constraintTop_toBottomOf="@+id/NamaLengkap" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordInputLayout"
@@ -83,12 +83,12 @@
         app:boxBackgroundMode="none"
         app:endIconMode="password_toggle"
         app:hintEnabled="false"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNamaLengkap2"
-        app:layout_constraintStart_toStartOf="@+id/editTextNamaLengkap2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNamaLengkap2">
+        app:layout_constraintEnd_toEndOf="@+id/NipGuru"
+        app:layout_constraintStart_toStartOf="@+id/NipGuru"
+        app:layout_constraintTop_toBottomOf="@+id/NipGuru">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextNamaLengkap3"
+            android:id="@+id/PasswordGuru"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@drawable/inputbergambar"
@@ -116,7 +116,7 @@
         app:layout_constraintTop_toBottomOf="@+id/passwordInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextNamaLengkap5"
+            android:id="@+id/ConfirmPasswordGuru"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@drawable/inputbergambar"
@@ -132,7 +132,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <EditText
-        android:id="@+id/editTextNamaLengkap6"
+        android:id="@+id/KodeGuru"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginTop="6dp"
@@ -151,7 +151,7 @@
 
 
     <Button
-        android:id="@+id/ButtonMasuk"
+        android:id="@+id/ButtonDaftarGuru"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginTop="26dp"
@@ -164,22 +164,24 @@
         app:iconGravity="textStart"
         app:iconPadding="10dp"
         app:iconTint="@null"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNamaLengkap6"
-        app:layout_constraintStart_toStartOf="@+id/editTextNamaLengkap6"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNamaLengkap6" />
+        app:layout_constraintEnd_toEndOf="@+id/KodeGuru"
+        app:layout_constraintStart_toStartOf="@+id/KodeGuru"
+        app:layout_constraintTop_toBottomOf="@+id/KodeGuru" />
 
     <TextView
         android:id="@+id/punyaAkunView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="81dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/nunito_medium"
         android:text="Sudah punya akun?"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/ButtonMasuk"
+        app:layout_constraintEnd_toEndOf="@+id/ButtonDaftarGuru"
         app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="@+id/ButtonMasuk"
-        app:layout_constraintTop_toBottomOf="@+id/ButtonMasuk"
+        app:layout_constraintStart_toStartOf="@+id/ButtonDaftarGuru"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonDaftarGuru"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -187,7 +189,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="81dp"
-        android:layout_marginEnd="129dp"
+        android:layout_marginEnd="120dp"
+        android:fontFamily="@font/nunito_medium"
         android:text="Masuk"
         android:textColor="#106F85"
         android:textSize="16sp"
@@ -195,7 +198,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/punyaAkunView"
-        app:layout_constraintTop_toBottomOf="@+id/ButtonMasuk"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonDaftarGuru"
         app:layout_constraintVertical_bias="0.0" />
 
 
