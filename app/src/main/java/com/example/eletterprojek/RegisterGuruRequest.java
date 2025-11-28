@@ -7,19 +7,19 @@ public class RegisterGuruRequest {
     @SerializedName("fullname")
     private String fullname;
 
+    @SerializedName("email")
+    private String email;
+
     @SerializedName("password")
     private String password;
 
-    @SerializedName("nip")
-    private String nip;
+    @SerializedName("token")
+    private String token;
 
-    @SerializedName("kode_guru")
-    private String kodeGuru;
-
-    public RegisterGuruRequest(String fullname, String password, String nip, String kodeGuru) {
+    public RegisterGuruRequest(String fullname, String email, String password, String token) {
         this.fullname = fullname;
+        this.email = email;
         this.password = password;
-        this.nip = nip;
-        this.kodeGuru = kodeGuru;
+        this.token = token;
     }
 }

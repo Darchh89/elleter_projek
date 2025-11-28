@@ -14,6 +14,6 @@ public interface ApiService {
     @POST("auth/login") // Ganti dari "login" menjadi "auth/login"
     Call<AuthResponse> loginUser(@Body LoginRequest loginRequest);
 
-    @POST("api/auth/register-guru")
+    @POST("auth/register")
     Call<AuthResponse> registerGuru(@Body RegisterGuruRequest registerGuruRequest);
 }

@@ -9,16 +9,9 @@ import java.util.concurrent.TimeUnit;
 public class ApiClient {
 
 
-    private static final String BASE_URL = "http://192.168.85.117:3000/api/";
+    private static final String BASE_URL = "http://192.168.85.44:3000/api/";
 
-    /*
-     * Jika backend berjalan di komputer lokal dan diuji dengan HP Fisik:
-     * 1. Pastikan HP & komputer terhubung ke jaringan WiFi yang sama.
-     * 2. Cari tahu IP Komputer Anda (misal: di Windows, buka cmd dan ketik 'ipconfig').
-     * 3. Ganti '192.168.1.10' dengan IP komputer Anda.
-     */
-    // private static final String BASE_URL = "http://192.168.1.10:3000/api/";
-    // ---------------------------------------------
+
 
     private static Retrofit retrofit = null;
 

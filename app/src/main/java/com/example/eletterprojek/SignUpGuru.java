@@ -1,5 +1,6 @@
 package com.example.eletterprojek;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,18 +15,19 @@ import retrofit2.Response;
 
 public class SignUpGuru extends AppCompatActivity {
 
-    private EditText etNamaLengkap, etNip, etPassword, etKodeGuru;
+    private EditText etNamaLengkap, etEmail, etPassword, etToken;
     private Button btnDaftar;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_guru);
 
         etNamaLengkap = findViewById(R.id.NamaLengkap);
-        etNip = findViewById(R.id.NipGuru);
+        etEmail = findViewById(R.id.EmailGuru);
         etPassword = findViewById(R.id.PasswordGuru);
-        etKodeGuru = findViewById(R.id.KodeGuru); // Ambil ID komponen baru
+        etToken = findViewById(R.id.Token);
         btnDaftar = findViewById(R.id.ButtonDaftarGuru);
 
         btnDaftar.setOnClickListener(v -> handleRegisterGuru());
@@ -33,11 +35,11 @@ public class SignUpGuru extends AppCompatActivity {
 
     private void handleRegisterGuru() {
         String fullname = etNamaLengkap.getText().toString().trim();
-        String nip = etNip.getText().toString().trim();
+        String email = etEmail.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
-        String kodeGuru = etKodeGuru.getText().toString().trim();
+        String token = etToken.getText().toString().trim();
 
-        if (fullname.isEmpty() || nip.isEmpty() || password.isEmpty() || kodeGuru.isEmpty()) {
+        if (fullname.isEmpty() || email.isEmpty() || password.isEmpty() || token.isEmpty()) {
             Toast.makeText(this, "Semua kolom wajib diisi!", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -45,7 +47,7 @@ public class SignUpGuru extends AppCompatActivity {
         btnDaftar.setEnabled(false);
         btnDaftar.setText("Mendaftar...");
 
-        RegisterGuruRequest request = new RegisterGuruRequest(fullname, password, nip, kodeGuru);
+        RegisterGuruRequest request = new RegisterGuruRequest(fullname, email, password, token);
         ApiService apiService = ApiClient.getClient().create(ApiService.class);
 
         Call<AuthResponse> call = apiService.registerGuru(request);
@@ -66,12 +68,10 @@ public class SignUpGuru extends AppCompatActivity {
                         finish();
                     }
                 } else {
-                    // Tangani error, misalnya kode guru salah
+                    // Tangani error, misalnya token salah
                     String errorMessage = "Registrasi Gagal (Kode: " + response.code() + ")";
                     if (response.errorBody() != null) {
-                        // Coba baca pesan error dari JSON
                         try {
-                            // Anda bisa membuat kelas ErrorResponse untuk ini
                             errorMessage = response.errorBody().string();
                         } catch (Exception e) {}
                     }
