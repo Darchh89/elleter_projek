@@ -23,7 +23,7 @@ public class KamuPilihakuApaDia extends AppCompatActivity {
         btnGuru.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(KamuPilihakuApaDia.this, SignUpGuru.class);
+                Intent intent = new Intent(KamuPilihakuApaDia.this, SignInGuru.class);
                 startActivity(intent);
             }
         });

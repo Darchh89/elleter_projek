@@ -58,8 +58,8 @@
             android:text="Lupa Kata Sandi?"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/editTextNamaLengkap7"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNamaLengkap7" />
+            app:layout_constraintEnd_toEndOf="@+id/PasswordLoginG"
+            app:layout_constraintTop_toBottomOf="@+id/PasswordLoginG" />
 
         <Button
             android:id="@+id/buttonMasuk"
@@ -75,9 +75,9 @@
             app:iconGravity="textStart"
             app:iconPadding="10dp"
             app:iconTint="@null"
-            app:layout_constraintEnd_toEndOf="@+id/editTextNamaLengkap7"
-            app:layout_constraintStart_toStartOf="@+id/editTextNamaLengkap7"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNamaLengkap7" />
+            app:layout_constraintEnd_toEndOf="@+id/PasswordLoginG"
+            app:layout_constraintStart_toStartOf="@+id/PasswordLoginG"
+            app:layout_constraintTop_toBottomOf="@+id/PasswordLoginG" />
 
         <TextView
             android:id="@+id/BtnDaftar"
@@ -92,7 +92,7 @@
             app:layout_constraintTop_toBottomOf="@+id/buttonMasuk" />
 
         <EditText
-            android:id="@+id/editTextNamaLengkap4"
+            android:id="@+id/IDGuru"
             android:layout_width="0dp"
             android:layout_height="55dp"
             android:layout_marginStart="24dp"
@@ -101,7 +101,7 @@
             android:background="@drawable/inputbergambar"
             android:drawableStart="@drawable/tagoren"
             android:drawablePadding="12dp"
-            android:hint="Masukan NIP"
+            android:hint="Masukan ID Guru"
             android:inputType="text"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
@@ -127,7 +127,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextNamaLengkap7"
+            android:id="@+id/PasswordLoginG"
             android:layout_width="0dp"
             android:layout_height="55dp"
             android:layout_marginTop="6dp"
@@ -140,21 +140,10 @@
             android:paddingEnd="16dp"
             android:textColor="#000000"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/editTextNamaLengkap4"
-            app:layout_constraintStart_toStartOf="@+id/editTextNamaLengkap4"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNamaLengkap4" />
+            app:layout_constraintEnd_toEndOf="@+id/IDGuru"
+            app:layout_constraintStart_toStartOf="@+id/IDGuru"
+            app:layout_constraintTop_toBottomOf="@+id/IDGuru" />
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:focusableInTouchMode="true"
-            android:text="< Kembali Ke Halaman utama"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.07"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

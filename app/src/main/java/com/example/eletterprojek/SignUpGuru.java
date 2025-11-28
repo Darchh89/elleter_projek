@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +18,7 @@ public class SignUpGuru extends AppCompatActivity {
 
     private EditText etNamaLengkap, etEmail, etPassword, etToken;
     private Button btnDaftar;
+    private TextView tvMasuk;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -29,8 +31,13 @@ public class SignUpGuru extends AppCompatActivity {
         etPassword = findViewById(R.id.PasswordGuru);
         etToken = findViewById(R.id.Token);
         btnDaftar = findViewById(R.id.ButtonDaftarGuru);
+        tvMasuk = findViewById(R.id.DaftarView);
 
         btnDaftar.setOnClickListener(v -> handleRegisterGuru());
+
+        tvMasuk.setOnClickListener(v -> {
+            finish();
+        });
     }
 
     private void handleRegisterGuru() {
@@ -48,39 +55,38 @@ public class SignUpGuru extends AppCompatActivity {
         btnDaftar.setText("Mendaftar...");
 
         RegisterGuruRequest request = new RegisterGuruRequest(fullname, email, password, token);
-        ApiService apiService = ApiClient.getClient().create(ApiService.class);
 
-        Call<AuthResponse> call = apiService.registerGuru(request);
-        call.enqueue(new Callback<AuthResponse>() {
+        Call<RegisterGuruResponse> call = ApiClient.getApiService().registerGuru(request);
+
+        call.enqueue(new Callback<RegisterGuruResponse>() {
             @Override
-            public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
+            public void onResponse(Call<RegisterGuruResponse> call, Response<RegisterGuruResponse> response) {
                 btnDaftar.setEnabled(true);
                 btnDaftar.setText("Daftar");
 
                 if (response.isSuccessful() && response.body() != null) {
-                    AuthResponse authResponse = response.body();
-                    Toast.makeText(SignUpGuru.this, authResponse.getMessage(), Toast.LENGTH_LONG).show();
+                    RegisterGuruResponse registerResponse = response.body();
+                    Toast.makeText(SignUpGuru.this, registerResponse.getMessage(), Toast.LENGTH_LONG).show();
 
-                    if (authResponse.isSuccess()) {
-                        // Jika sukses, arahkan ke halaman login
-                        Intent intent = new Intent(SignUpGuru.this, SignInGuru.class);
-                        startActivity(intent);
-                        finish();
-                    }
+                    Intent intent = new Intent(SignUpGuru.this, SignInGuru.class);
+                    intent.putExtra("USER_CODE", registerResponse.getUserCode());
+                    startActivity(intent);
+                    finish();
                 } else {
-                    // Tangani error, misalnya token salah
                     String errorMessage = "Registrasi Gagal (Kode: " + response.code() + ")";
                     if (response.errorBody() != null) {
                         try {
                             errorMessage = response.errorBody().string();
-                        } catch (Exception e) {}
+                        } catch (Exception e) {
+                            Log.e("SignUpGuru", "Error parsing error body", e);
+                        }
                     }
                     Toast.makeText(SignUpGuru.this, errorMessage, Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<AuthResponse> call, Throwable t) {
+            public void onFailure(Call<RegisterGuruResponse> call, Throwable t) {
                 btnDaftar.setEnabled(true);
                 btnDaftar.setText("Daftar");
                 Log.e("RegisterGuruError", "onFailure: " + t.getMessage());
