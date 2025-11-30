@@ -3,7 +3,6 @@ package com.example.eletterprojek;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -27,61 +26,63 @@ public class masuk_siswa extends AppCompatActivity {
         setContentView(R.layout.activity_masuk_siswa);
 
         etNamaLengkap = findViewById(R.id.NamaLengkap);
-        etEmail = findViewById(R.id.NipGuru); // Pastikan ID ini sesuai dengan layout untuk email
+        etEmail = findViewById(R.id.NipGuru); // Note: ID from layout seems incorrect, but using it as is.
         etPassword = findViewById(R.id.PasswordGuru);
         etConfirmPassword = findViewById(R.id.ConfirmPasswordGuru);
         btnDaftar = findViewById(R.id.ButtonDaftarGuru);
         tvMasuk = findViewById(R.id.daftarView);
 
         tvMasuk.setOnClickListener(v -> {
-            Intent intent = new Intent(masuk_siswa.this, login_siswa.class);
-            startActivity(intent);
+            // Finish this activity to go back to the previous one (login screen)
             finish();
         });
 
-        btnDaftar.setOnClickListener(v -> registerUser());
+        btnDaftar.setOnClickListener(v -> registerSiswa());
     }
 
-    private void registerUser() {
+    private void registerSiswa() {
         String fullname = etNamaLengkap.getText().toString().trim();
         String email = etEmail.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
         String confirmPassword = etConfirmPassword.getText().toString().trim();
 
-        if (fullname.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-            Toast.makeText(this, "Harap isi semua kolom", Toast.LENGTH_SHORT).show();
+        if (fullname.isEmpty() || email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Nama Lengkap, Email, dan Password harus diisi", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (!password.equals(confirmPassword)) {
-            Toast.makeText(this, "Password tidak cocok", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Password dan konfirmasi password tidak cocok", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        RegisterSiswaRequest registerSiswaRequest = new RegisterSiswaRequest(fullname, email, password);
-        // Menggunakan metode registerSiswa yang benar dari ApiService
-        Call<RegisterSiswaResponse> call = ApiClient.getApiService().registerSiswa(registerSiswaRequest);
+        // For student registration, token is null, as per your Node.js code.
+        RegisterGuruRequest registerRequest = new RegisterGuruRequest(fullname, email, password, null);
 
-        call.enqueue(new Callback<RegisterSiswaResponse>() {
+        // The server uses the same endpoint for both students and teachers.
+        Call<RegisterGuruResponse> call = ApiClient.getApiService().registerGuru(registerRequest);
+
+        call.enqueue(new Callback<RegisterGuruResponse>() {
             @Override
-            public void onResponse(Call<RegisterSiswaResponse> call, Response<RegisterSiswaResponse> response) {
+            public void onResponse(Call<RegisterGuruResponse> call, Response<RegisterGuruResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    // Mengambil pesan dari response body
-                    String message = response.body().getMessage();
-                    Toast.makeText(masuk_siswa.this, "Pendaftaran berhasil: " + message, Toast.LENGTH_LONG).show();
+                    RegisterGuruResponse registerResponse = response.body();
+                    Toast.makeText(masuk_siswa.this, "Pendaftaran berhasil!", Toast.LENGTH_LONG).show();
+
                     Intent intent = new Intent(masuk_siswa.this, login_siswa.class);
+                    // Pass the new user_code to the login screen
+                    intent.putExtra("USER_CODE", registerResponse.getUserCode());
                     startActivity(intent);
-                    finish();
+                    finish(); // Close the registration activity
                 } else {
-                    // Menampilkan pesan error jika registrasi gagal
-                    Toast.makeText(masuk_siswa.this, "Pendaftaran gagal. Silakan coba lagi.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(masuk_siswa.this, "Pendaftaran gagal. Email mungkin sudah terdaftar.", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<RegisterSiswaResponse> call, Throwable t) {
+            public void onFailure(Call<RegisterGuruResponse> call, Throwable t) {
                 Toast.makeText(masuk_siswa.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.e("RegisterError", "API call failed: ", t);
+                Log.e("RegisterSiswaError", "API call failed: ", t);
             }
         });
     }

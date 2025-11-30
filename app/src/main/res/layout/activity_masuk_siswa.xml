@@ -57,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@drawable/inputbergambar"
-            android:drawableStart="@drawable/gembok"
+            android:drawableStart="@drawable/lock"
             android:drawablePadding="12dp"
             android:hint="Masukan Password"
             android:inputType="textPassword"
@@ -85,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@drawable/inputbergambar"
-            android:drawableStart="@drawable/gembok"
+            android:drawableStart="@drawable/lock"
             android:drawablePadding="12dp"
             android:hint="Konfirmasi Password"
             android:inputType="textPassword"
@@ -96,15 +96,16 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <EditText
         android:id="@+id/NamaLengkap"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/inputbergambar"
-        android:drawableStart="@drawable/person_picture"
+        android:drawableStart="@drawable/person"
         android:drawablePadding="12dp"
         android:fontFamily="@font/montserrat_semibold"
         android:hint="Masukan Nama Lengkap"
@@ -114,9 +115,9 @@
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextViewBergabung"/>
-
+        app:layout_constraintTop_toBottomOf="@+id/TextViewBergabung" />
 
     <EditText
         android:id="@+id/NipGuru"
@@ -124,9 +125,9 @@
         android:layout_height="55dp"
         android:layout_marginTop="6dp"
         android:background="@drawable/inputbergambar"
-        android:drawableStart="@drawable/vector__1_"
+        android:drawableStart="@drawable/address"
         android:drawablePadding="12dp"
-        android:hint="Masukan NIP"
+        android:hint="Email"
         android:inputType="text"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"

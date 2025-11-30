@@ -51,7 +51,7 @@
         android:background="@drawable/inputbergambar"
         android:drawableStart="@drawable/tagoren"
         android:drawablePadding="12dp"
-        android:hint="Masukan NIP"
+        android:hint="ID"
         android:inputType="text"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
