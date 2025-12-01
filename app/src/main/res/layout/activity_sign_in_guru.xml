@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:backgroundTint="@color/white"
-    tools:context=".masuk_siswa">
+    tools:context=".SignInGuru">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,6 +18,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/punyaAkunView3"
+            android:layout_width="192dp"
+            android:layout_height="20dp"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="@font/nunito_medium"
+            android:text="Belum punya akun?"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/buttonMasuk"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/buttonMasuk" />
+
+        <TextView
+            android:id="@+id/TextDaftar"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="148dp"
+            android:fontFamily="@font/nunito_medium"
+            android:text="Daftar"
+            android:textColor="#FF7235"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/punyaAkunView3"
+            app:layout_constraintStart_toStartOf="@+id/punyaAkunView3" />
 
         <TextView
             android:id="@+id/textView11"
@@ -44,8 +69,8 @@
             android:text="Lupa Kata Sandi?"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/PasswordLoginG"
-            app:layout_constraintTop_toBottomOf="@+id/PasswordLoginG" />
+            app:layout_constraintEnd_toEndOf="@+id/PasswordLoginGLayout"
+            app:layout_constraintTop_toBottomOf="@+id/PasswordLoginGLayout" />
 
         <Button
             android:id="@+id/buttonMasuk"
@@ -61,36 +86,9 @@
             app:iconGravity="textStart"
             app:iconPadding="10dp"
             app:iconTint="@null"
-            app:layout_constraintEnd_toEndOf="@+id/PasswordLoginG"
-            app:layout_constraintStart_toStartOf="@+id/PasswordLoginG"
-            app:layout_constraintTop_toBottomOf="@+id/PasswordLoginG" />
-
-        <TextView
-            android:id="@+id/BtnDaftar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="356dp"
-            android:fontFamily="@font/nunito_medium"
-            android:text="Belum punya akun?"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/buttonMasuk"
-            app:layout_constraintHorizontal_bias="0.375"
-            app:layout_constraintStart_toStartOf="@+id/buttonMasuk"
-            app:layout_constraintTop_toBottomOf="@+id/buttonMasuk" />
-
-        <TextView
-            android:id="@+id/TextDaftar"
-            android:layout_width="105dp"
-            android:layout_height="57dp"
-            android:layout_marginStart="160dp"
-            android:layout_marginTop="356dp"
-            android:backgroundTint="#FF7235"
-            android:clickable="true"
-            android:text="Daftar"
-            android:textColor="#FF7235"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/BtnDaftar"
-            app:layout_constraintTop_toBottomOf="@+id/buttonMasuk" />
+            app:layout_constraintEnd_toEndOf="@+id/PasswordLoginGLayout"
+            app:layout_constraintStart_toStartOf="@+id/PasswordLoginGLayout"
+            app:layout_constraintTop_toBottomOf="@+id/PasswordLoginGLayout" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarBack"
@@ -149,23 +147,35 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/PasswordLoginG"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/PasswordLoginGLayout"
             android:layout_width="0dp"
-            android:layout_height="55dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:background="@drawable/inputbergambar"
-            android:drawableStart="@drawable/gboren"
-            android:drawablePadding="12dp"
-            android:hint="Masukan Password"
-            android:inputType="textPassword"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:textColor="#000000"
-            android:textSize="16sp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="@+id/IDGuru"
             app:layout_constraintStart_toStartOf="@+id/IDGuru"
-            app:layout_constraintTop_toBottomOf="@+id/IDGuru" />
+            app:layout_constraintTop_toBottomOf="@+id/IDGuru"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleDrawable="@drawable/password_eye_toggle"
+            app:passwordToggleTint="@null">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/PasswordLoginG"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/inputbergambar"
+                android:drawableStart="@drawable/gboren"
+                android:drawablePadding="12dp"
+                android:hint="Masukan Password"
+                android:inputType="textPassword"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

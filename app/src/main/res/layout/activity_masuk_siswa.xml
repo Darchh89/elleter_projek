@@ -9,9 +9,10 @@
     tools:context=".masuk_siswa">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarBack3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/toolbarBack"
+        android:layout_width="254dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="25dp"
         android:background="@android:color/white"
         android:elevation="4dp"
         app:contentInsetStartWithNavigation="0dp"
@@ -24,53 +25,91 @@
             android:layout_height="25dp"
             android:text="Kembali ke Halaman Utama"
             android:textColor="#A0A0A0"
-            android:textSize="16sp"
-            tools:layout_editor_absoluteX="56dp"
-            tools:layout_editor_absoluteY="19dp" />
+            android:textSize="16sp" />
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
-        android:id="@+id/punyaAkunView"
-        android:layout_width="146dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="264dp"
-        android:fontFamily="@font/nunito_medium"
-        android:text="Sudah punya akun?"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/ButtonDaftarGuru"
-        app:layout_constraintHorizontal_bias="0.401"
-        app:layout_constraintStart_toStartOf="@+id/ButtonDaftarGuru"
-        app:layout_constraintTop_toBottomOf="@+id/ButtonDaftarGuru" />
+        android:id="@+id/ViewBuatAkun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:fontFamily="@font/montserrat_extrabold"
+        android:gravity="center"
+        android:text="Buat Akun"
+        android:textColor="@color/black"
+        android:textSize="33sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/daftarView"
-        android:layout_width="49dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="264dp"
-        android:layout_marginEnd="124dp"
-        android:fontFamily="@font/nunito_medium"
-        android:text="Masuk"
-        android:textColor="#106F85"
+        android:id="@+id/TextViewBergabung"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="center"
+        android:text="Bergabung dengan sistem E-Letter"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ViewBuatAkun" />
+
+    <EditText
+        android:id="@+id/NamaLengkapSiswa"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/inputbergambar"
+        android:drawableStart="@drawable/person"
+        android:drawablePadding="12dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:hint="Masukan Nama Lengkap"
+        android:inputType="textPersonName"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/punyaAkunView"
-        app:layout_constraintTop_toBottomOf="@+id/ButtonDaftarGuru" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextViewBergabung" />
+
+    <EditText
+        android:id="@+id/EmailSiswa"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/inputbergambar"
+        android:drawableStart="@drawable/address"
+        android:drawablePadding="12dp"
+        android:hint="Masukan Email"
+        android:inputType="textEmailAddress"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/NamaLengkapSiswa"
+        app:layout_constraintStart_toStartOf="@+id/NamaLengkapSiswa"
+        app:layout_constraintTop_toBottomOf="@+id/NamaLengkapSiswa" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordInputLayout"
+        android:id="@+id/PasswordSiswa"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         app:boxBackgroundMode="none"
-        app:endIconMode="password_toggle"
         app:hintEnabled="false"
-        app:layout_constraintEnd_toEndOf="@+id/NipGuru"
-        app:layout_constraintStart_toStartOf="@+id/NipGuru"
-        app:layout_constraintTop_toBottomOf="@+id/NipGuru">
+        app:layout_constraintEnd_toEndOf="@+id/EmailSiswa"
+        app:layout_constraintStart_toStartOf="@+id/EmailSiswa"
+        app:layout_constraintTop_toBottomOf="@+id/EmailSiswa"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleDrawable="@drawable/custom_password_toggle"
+        app:passwordToggleTint="@null" >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/PasswordGuru"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@drawable/inputbergambar"
@@ -86,19 +125,20 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/confirmPasswordInputLayout"
+        android:id="@+id/ConfirmPasswordSiswa"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         app:boxBackgroundMode="none"
-        app:endIconMode="password_toggle"
         app:hintEnabled="false"
-        app:layout_constraintEnd_toEndOf="@+id/passwordInputLayout"
-        app:layout_constraintStart_toStartOf="@+id/passwordInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/passwordInputLayout">
+        app:layout_constraintEnd_toEndOf="@+id/PasswordSiswa"
+        app:layout_constraintStart_toStartOf="@+id/PasswordSiswa"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordSiswa"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleDrawable="@drawable/custom_password_toggle"
+        app:passwordToggleTint="@null">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ConfirmPasswordGuru"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@drawable/inputbergambar"
@@ -113,93 +153,47 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-
-    <EditText
-        android:id="@+id/NamaLengkap"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/inputbergambar"
-        android:drawableStart="@drawable/person"
-        android:drawablePadding="12dp"
-        android:fontFamily="@font/montserrat_semibold"
-        android:hint="Masukan Nama Lengkap"
-        android:inputType="textPersonName"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextViewBergabung" />
-
-    <EditText
-        android:id="@+id/NipGuru"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="6dp"
-        android:background="@drawable/inputbergambar"
-        android:drawableStart="@drawable/address"
-        android:drawablePadding="12dp"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/NamaLengkap"
-        app:layout_constraintStart_toStartOf="@+id/NamaLengkap"
-        app:layout_constraintTop_toBottomOf="@+id/NamaLengkap" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="213dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="120dp"
-        android:fontFamily="@font/montserrat_extrabold"
-        android:gravity="center"
-        android:text="Buat Akun"
-        android:textColor="#000000"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
-        android:id="@+id/ButtonDaftarGuru"
-        android:layout_width="360dp"
+        android:id="@+id/ButtonDaftarSiswa"
+        android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginTop="26dp"
-        android:backgroundTint="#106F85"
+        android:backgroundTint="@color/rasi"
+        android:fontFamily="@font/montserrat_extrabold"
         android:text="Daftar"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         app:icon="@drawable/tambahorang"
         app:iconGravity="textStart"
         app:iconPadding="10dp"
         app:iconTint="@null"
-        app:layout_constraintEnd_toEndOf="@+id/confirmPasswordInputLayout"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="@+id/confirmPasswordInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/confirmPasswordInputLayout" />
+        app:layout_constraintEnd_toEndOf="@+id/ConfirmPasswordSiswa"
+        app:layout_constraintStart_toStartOf="@+id/ConfirmPasswordSiswa"
+        app:layout_constraintTop_toBottomOf="@+id/ConfirmPasswordSiswa" />
 
     <TextView
-        android:id="@+id/TextViewBergabung"
-        android:layout_width="292dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="36dp"
-        android:fontFamily="@font/montserrat"
-        android:gravity="center"
-        android:text="Bergabung dengan sistem E-Letter"
-        android:textColor="@color/black"
+        android:id="@+id/punyaAkunView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:fontFamily="@font/nunito_medium"
+        android:text="Sudah punya akun?"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView11"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/ButtonDaftarSiswa"
+        app:layout_constraintHorizontal_bias="0.411"
+        app:layout_constraintStart_toStartOf="@+id/ButtonDaftarSiswa" />
+
+    <TextView
+        android:id="@+id/MasukView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/nunito_medium"
+        android:text="Masuk"
+        android:textColor="#106F85"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/punyaAkunView"
+        app:layout_constraintStart_toEndOf="@+id/punyaAkunView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

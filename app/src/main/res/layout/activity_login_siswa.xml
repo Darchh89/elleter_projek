@@ -7,8 +7,34 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:touchscreenBlocksFocus="true"
-    tools:context=".login_siswa">
+    tools:context=".LoginSiswa">
 
+
+    <TextView
+        android:id="@+id/punyaAkunView2"
+        android:layout_width="192dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/nunito_medium"
+        android:text="Belum punya akun?"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/buttonMasuk2"
+        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintStart_toStartOf="@+id/buttonMasuk2" />
+
+    <TextView
+        android:id="@+id/TextDaftar"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="145dp"
+        android:fontFamily="@font/nunito_medium"
+        android:text="Daftar"
+        android:textColor="#FF7235"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/punyaAkunView2"
+        app:layout_constraintStart_toStartOf="@+id/punyaAkunView2" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarBack2"
@@ -45,9 +71,9 @@
         app:iconGravity="textStart"
         app:iconPadding="10dp"
         app:iconTint="@null"
-        app:layout_constraintEnd_toEndOf="@+id/PasswordLoginG"
-        app:layout_constraintStart_toStartOf="@+id/PasswordLoginG"
-        app:layout_constraintTop_toBottomOf="@+id/PasswordLoginG" />
+        app:layout_constraintEnd_toEndOf="@+id/PasswordLoginSiswaLayout"
+        app:layout_constraintStart_toStartOf="@+id/PasswordLoginSiswaLayout"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordLoginSiswaLayout" />
 
     <TextView
         android:id="@+id/textViewBergabung"
@@ -65,7 +91,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <EditText
-        android:id="@+id/IDGuru"
+        android:id="@+id/IDSiswa"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginStart="24dp"
@@ -74,7 +100,7 @@
         android:background="@drawable/inputbergambar"
         android:drawableStart="@drawable/tagoren"
         android:drawablePadding="12dp"
-        android:hint="ID"
+        android:hint="ID Siswa"
         android:inputType="text"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
@@ -85,20 +111,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewBergabung" />
 
-
-    <TextView
-        android:id="@+id/TextDaftar"
-        android:layout_width="105dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="368dp"
-        android:backgroundTint="#375FE5"
-        android:clickable="true"
-        android:text="Daftar"
-        android:textColor="#375FE5"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/BtnDaftar"
-        app:layout_constraintTop_toBottomOf="@+id/buttonMasuk2" />
 
     <TextView
         android:id="@+id/textView11"
@@ -125,39 +137,34 @@
         android:textColor="#000000"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/PasswordLoginG"
-        app:layout_constraintTop_toBottomOf="@+id/PasswordLoginG" />
+        app:layout_constraintEnd_toEndOf="@+id/PasswordLoginSiswaLayout"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordLoginSiswaLayout" />
 
-    <TextView
-        android:id="@+id/BtnDaftar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="368dp"
-        android:layout_marginEnd="10dp"
-        android:text="Belum punya akun?"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.365"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonMasuk2" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/PasswordLoginG"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/PasswordLoginSiswaLayout"
         android:layout_width="0dp"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:background="@drawable/inputbergambar"
-        android:drawableStart="@drawable/gboren"
-        android:drawablePadding="12dp"
-        android:hint="Masukan Password"
-        android:inputType="textPassword"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/IDGuru"
-        app:layout_constraintStart_toStartOf="@+id/IDGuru"
-        app:layout_constraintTop_toBottomOf="@+id/IDGuru" />
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="@+id/IDSiswa"
+        app:layout_constraintStart_toStartOf="@+id/IDSiswa"
+        app:layout_constraintTop_toBottomOf="@+id/IDSiswa"
+        app:passwordToggleDrawable="@drawable/password_eye_toggle"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@null">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/inputbergambar"
+            android:drawableStart="@drawable/gboren"
+            android:drawablePadding="12dp"
+            android:hint="Masukan Password"
+            android:inputType="textPassword"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

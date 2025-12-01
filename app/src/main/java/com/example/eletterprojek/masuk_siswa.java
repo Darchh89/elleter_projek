@@ -1,14 +1,20 @@
 package com.example.eletterprojek;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+// Impor yang diperlukan untuk TextInputLayout
+import com.google.android.material.textfield.TextInputLayout;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -16,72 +22,104 @@ import retrofit2.Response;
 
 public class masuk_siswa extends AppCompatActivity {
 
-    private EditText etNamaLengkap, etEmail, etPassword, etConfirmPassword;
+    // Sesuaikan tipe dan nama variabel dengan XML yang baru
+    private EditText etNamaLengkap, etEmail;
+    private TextInputLayout tilPassword, tilConfirmPassword;
     private Button btnDaftar;
     private TextView tvMasuk;
+    private Toolbar toolbarBack;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_masuk_siswa);
 
-        etNamaLengkap = findViewById(R.id.NamaLengkap);
-        etEmail = findViewById(R.id.NipGuru); // Note: ID from layout seems incorrect, but using it as is.
-        etPassword = findViewById(R.id.PasswordGuru);
-        etConfirmPassword = findViewById(R.id.ConfirmPasswordGuru);
-        btnDaftar = findViewById(R.id.ButtonDaftarGuru);
-        tvMasuk = findViewById(R.id.daftarView);
+        // Gunakan ID yang sudah diperbaiki dari file layout
+        etNamaLengkap = findViewById(R.id.NamaLengkapSiswa);
+        etEmail = findViewById(R.id.EmailSiswa);
+        tilPassword = findViewById(R.id.PasswordSiswa);
+        tilConfirmPassword = findViewById(R.id.ConfirmPasswordSiswa);
+        btnDaftar = findViewById(R.id.ButtonDaftarSiswa);
+        tvMasuk = findViewById(R.id.MasukView);
+        toolbarBack = findViewById(R.id.toolbarBack);
 
-        tvMasuk.setOnClickListener(v -> {
-            // Finish this activity to go back to the previous one (login screen)
+        // --- Logika Tombol Kembali di Toolbar ---
+        toolbarBack.setOnClickListener(v -> {
+            // Cukup tutup halaman ini untuk kembali ke halaman LoginSiswa
             finish();
         });
 
+        // --- Logika Tombol "Masuk" ---
+        tvMasuk.setOnClickListener(v -> {
+            // Cukup tutup halaman ini untuk kembali ke halaman LoginSiswa
+            finish();
+        });
+
+        // --- Logika Tombol "Daftar" ---
         btnDaftar.setOnClickListener(v -> registerSiswa());
     }
 
     private void registerSiswa() {
+        // Hapus pesan error sebelumnya
+        tilConfirmPassword.setError(null);
+
         String fullname = etNamaLengkap.getText().toString().trim();
         String email = etEmail.getText().toString().trim();
-        String password = etPassword.getText().toString().trim();
-        String confirmPassword = etConfirmPassword.getText().toString().trim();
+        // Ambil teks dari dalam TextInputLayout
+        String password = tilPassword.getEditText().getText().toString().trim();
+        String confirmPassword = tilConfirmPassword.getEditText().getText().toString().trim();
 
-        if (fullname.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Nama Lengkap, Email, dan Password harus diisi", Toast.LENGTH_SHORT).show();
+        if (fullname.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+            Toast.makeText(this, "Semua kolom wajib diisi!", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (!password.equals(confirmPassword)) {
-            Toast.makeText(this, "Password dan konfirmasi password tidak cocok", Toast.LENGTH_SHORT).show();
+            // Tampilkan pesan error di bawah kolom konfirmasi password
+            tilConfirmPassword.setError("Password dan konfirmasi password tidak cocok");
             return;
         }
 
-        // For student registration, token is null, as per your Node.js code.
-        RegisterGuruRequest registerRequest = new RegisterGuruRequest(fullname, email, password, null);
+        btnDaftar.setEnabled(false);
+        btnDaftar.setText("Mendaftar...");
 
-        // The server uses the same endpoint for both students and teachers.
+        // API call tetap sama, menggunakan RegisterGuruRequest dengan token null
+        RegisterGuruRequest registerRequest = new RegisterGuruRequest(fullname, email, password, null);
         Call<RegisterGuruResponse> call = ApiClient.getApiService().registerGuru(registerRequest);
 
         call.enqueue(new Callback<RegisterGuruResponse>() {
             @Override
             public void onResponse(Call<RegisterGuruResponse> call, Response<RegisterGuruResponse> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    RegisterGuruResponse registerResponse = response.body();
-                    Toast.makeText(masuk_siswa.this, "Pendaftaran berhasil!", Toast.LENGTH_LONG).show();
+                btnDaftar.setEnabled(true);
+                btnDaftar.setText("Daftar");
 
+                if (response.isSuccessful() && response.body() != null) {
+                    Toast.makeText(masuk_siswa.this, "Pendaftaran berhasil! Silakan masuk.", Toast.LENGTH_LONG).show();
+
+                    // Kembali ke halaman login setelah berhasil mendaftar
                     Intent intent = new Intent(masuk_siswa.this, login_siswa.class);
-                    // Pass the new user_code to the login screen
-                    intent.putExtra("USER_CODE", registerResponse.getUserCode());
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
-                    finish(); // Close the registration activity
+                    finish();
                 } else {
-                    Toast.makeText(masuk_siswa.this, "Pendaftaran gagal. Email mungkin sudah terdaftar.", Toast.LENGTH_SHORT).show();
+                    String errorMessage = "Pendaftaran gagal. Email mungkin sudah terdaftar.";
+                    try {
+                        if (response.errorBody() != null) {
+                            Log.e("RegisterSiswa", "Error Body: " + response.errorBody().string());
+                        }
+                    } catch (Exception e) {
+                        Log.e("RegisterSiswa", "Gagal membaca pesan error", e);
+                    }
+                    Toast.makeText(masuk_siswa.this, errorMessage, Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<RegisterGuruResponse> call, Throwable t) {
-                Toast.makeText(masuk_siswa.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                btnDaftar.setEnabled(true);
+                btnDaftar.setText("Daftar");
+                Toast.makeText(masuk_siswa.this, "Gagal terhubung ke server: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.e("RegisterSiswaError", "API call failed: ", t);
             }
         });

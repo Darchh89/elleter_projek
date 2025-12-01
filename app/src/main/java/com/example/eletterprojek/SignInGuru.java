@@ -23,7 +23,7 @@ public class SignInGuru extends AppCompatActivity {
     private MaterialButton btnLogin;
     private TextView textDaftar;
 
-    @SuppressLint("WrongViewCast")
+    @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

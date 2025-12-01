@@ -1,20 +1,21 @@
 package com.example.eletterprojek;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.appcompat.widget.Toolbar;
 
-import com.google.android.material.textfield.TextInputEditText;
+// Impor yang diperlukan untuk TextInputLayout
+import com.google.android.material.textfield.TextInputLayout;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,90 +23,110 @@ import retrofit2.Response;
 
 public class login_siswa extends AppCompatActivity {
 
-    private TextView tvDaftar;
+    // Sesuaikan tipe variabel dengan komponen di XML
     private EditText etIdSiswa;
-    private TextInputEditText etPasswordSiswa;
+    private TextInputLayout tilPassword;
     private Button btnMasuk;
-    private ApiService apiService;
+    private TextView tvDaftar, tvLupaPassword;
+    private Toolbar toolbarBack;
 
+    private SharedPreferences sharedPreferences;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login_siswa);
 
-        tvDaftar = findViewById(R.id.TextDaftar);
-        etIdSiswa = findViewById(R.id.IDGuru); // ID from layout is IDGuru
-        etPasswordSiswa = findViewById(R.id.PasswordLoginG); // ID from layout is PasswordLoginG
+        // Inisialisasi SharedPreferences
+        sharedPreferences = getSharedPreferences("user_session", MODE_PRIVATE);
+
+        // Inisialisasi komponen view dengan ID yang benar dari XML baru
+        etIdSiswa = findViewById(R.id.IDSiswa);
+        tilPassword = findViewById(R.id.PasswordLoginSiswaLayout);
         btnMasuk = findViewById(R.id.buttonMasuk2);
+        tvDaftar = findViewById(R.id.TextDaftar);
+        toolbarBack = findViewById(R.id.toolbarBack2);
+        tvLupaPassword = findViewById(R.id.textView12);
 
-        apiService = ApiClient.getClient().create(ApiService.class);
 
-        tvDaftar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(login_siswa.this, masuk_siswa.class);
-                startActivity(intent);
-            }
+        // --- Logika Tombol Kembali di Toolbar ---
+        toolbarBack.setOnClickListener(v -> {
+            Intent intent = new Intent(login_siswa.this, KamuPilihakuApaDia.class);
+            startActivity(intent);
+            finish();
         });
 
-        btnMasuk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                handleLoginSiswa();
-            }
+        // --- Logika Tombol Masuk ---
+        btnMasuk.setOnClickListener(v -> handleLogin());
+
+        // --- Logika Teks "Daftar" ---
+        tvDaftar.setOnClickListener(v -> {
+            // Arahkan ke halaman pendaftaran siswa yang benar
+            Intent intent = new Intent(login_siswa.this, masuk_siswa.class);
+            startActivity(intent);
         });
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
     }
 
-    private void handleLoginSiswa() {
+    private void handleLogin() {
+        // Ambil teks dari EditText dan TextInputLayout
         String userCode = etIdSiswa.getText().toString().trim();
-        String password = etPasswordSiswa.getText().toString().trim();
+        String password = tilPassword.getEditText().getText().toString().trim();
 
         if (userCode.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "ID dan Password tidak boleh kosong", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ID dan Password tidak boleh kosong!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Validate that user_code starts with "S"
-        if (!userCode.toUpperCase().startsWith("S")) {
-            Toast.makeText(this, "Mohon masukan ID yang benar", Toast.LENGTH_SHORT).show();
-            return;
-        }
+        btnMasuk.setEnabled(false);
+        btnMasuk.setText("Loading...");
 
         LoginRequest loginRequest = new LoginRequest(userCode, password);
-        Call<LoginResponse> call = apiService.login(loginRequest);
+        Call<LoginResponse> call = ApiClient.getApiService().login(loginRequest);
 
         call.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                btnMasuk.setEnabled(true);
+                btnMasuk.setText("Masuk");
+
                 if (response.isSuccessful() && response.body() != null) {
-                    Toast.makeText(login_siswa.this, "Login berhasil!", Toast.LENGTH_SHORT).show();
+                    LoginResponse loginResponse = response.body();
+                    Toast.makeText(login_siswa.this, loginResponse.getMessage(), Toast.LENGTH_LONG).show();
+
+                    // Simpan sesi login
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putBoolean("is_logged_in", true);
+                    editor.putString("user_token", loginResponse.getToken()); // Simpan token jika ada
+                    editor.apply();
+
+                    // Arahkan ke halaman beranda
                     Intent intent = new Intent(login_siswa.this, Beranda.class);
-                    // You can pass user data to Beranda activity if needed
-                    // intent.putExtra("USER_DATA", response.body());
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
-                    finish(); // Close login activity
+                    finish();
+
                 } else {
-                    // Handle different error responses
-                    String errorMessage = "Login gagal. Periksa kembali ID dan Password Anda.";
-                    if (response.code() == 404) {
-                        errorMessage = "User code tidak ditemukan.";
-                    } else if (response.code() == 401) {
-                        errorMessage = "Password salah.";
+                    String errorMessage = "Login Gagal. Periksa kembali ID dan password Anda.";
+                    if (response.errorBody() != null) {
+                        try {
+                            // Anda bisa parsing error body di sini untuk pesan yang lebih spesifik
+                            Log.e("LoginSiswa", "Error Body: " + response.errorBody().string());
+                        } catch (Exception e) {
+                            Log.e("LoginSiswa", "Gagal membaca pesan error", e);
+                        }
                     }
-                    Toast.makeText(login_siswa.this, errorMessage, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(login_siswa.this, errorMessage, Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(login_siswa.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                btnMasuk.setEnabled(true);
+                btnMasuk.setText("Masuk");
+                Log.e("LoginSiswaError", "onFailure: " + t.getMessage());
+                Toast.makeText(login_siswa.this, "Gagal terhubung ke server.", Toast.LENGTH_SHORT).show();
             }
         });
     }

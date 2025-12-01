@@ -6,12 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".masuk_siswa">
+    tools:context=".SignUpGuru">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarBack4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/toolbarBack"
+        android:layout_width="254dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="25dp"
         android:background="@android:color/white"
         android:elevation="4dp"
         app:contentInsetStartWithNavigation="0dp"
@@ -97,19 +98,20 @@
         app:layout_constraintTop_toBottomOf="@+id/NamaLengkap" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordInputLayout"
+        android:id="@+id/PasswordGuru"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         app:boxBackgroundMode="none"
-        app:endIconMode="password_toggle"
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="@+id/EmailGuru"
         app:layout_constraintStart_toStartOf="@+id/EmailGuru"
-        app:layout_constraintTop_toBottomOf="@+id/EmailGuru">
+        app:layout_constraintTop_toBottomOf="@+id/EmailGuru"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleDrawable="@drawable/custom_password_toggle"
+        app:passwordToggleTint="@null">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/PasswordGuru"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@drawable/inputbergambar"
@@ -125,19 +127,20 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/confirmPasswordInputLayout"
+        android:id="@+id/ConfirmPasswordGuru"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         app:boxBackgroundMode="none"
-        app:endIconMode="password_toggle"
         app:hintEnabled="false"
-        app:layout_constraintEnd_toEndOf="@+id/passwordInputLayout"
-        app:layout_constraintStart_toStartOf="@+id/passwordInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/passwordInputLayout">
+        app:layout_constraintEnd_toEndOf="@+id/PasswordGuru"
+        app:layout_constraintStart_toStartOf="@+id/PasswordGuru"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordGuru"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleDrawable="@drawable/custom_password_toggle"
+        app:passwordToggleTint="@null">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ConfirmPasswordGuru"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@drawable/inputbergambar"
@@ -166,9 +169,9 @@
         android:paddingEnd="16dp"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/confirmPasswordInputLayout"
-        app:layout_constraintStart_toStartOf="@+id/confirmPasswordInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/confirmPasswordInputLayout" />
+        app:layout_constraintEnd_toEndOf="@+id/ConfirmPasswordGuru"
+        app:layout_constraintStart_toStartOf="@+id/ConfirmPasswordGuru"
+        app:layout_constraintTop_toBottomOf="@+id/ConfirmPasswordGuru" />
 
 
     <Button
@@ -191,36 +194,28 @@
 
     <TextView
         android:id="@+id/punyaAkunView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="81dp"
-        android:layout_marginEnd="15dp"
+        android:layout_width="192dp"
+        android:layout_height="20dp"
+        android:layout_marginBottom="28dp"
         android:fontFamily="@font/nunito_medium"
         android:text="Sudah punya akun?"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/ButtonDaftarGuru"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="@+id/ButtonDaftarGuru"
-        app:layout_constraintTop_toBottomOf="@+id/ButtonDaftarGuru"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.41"
+        app:layout_constraintStart_toStartOf="@+id/ButtonDaftarGuru" />
 
     <TextView
         android:id="@+id/DaftarView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="81dp"
-        android:layout_marginEnd="120dp"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="145dp"
+        android:layout_marginBottom="28dp"
         android:fontFamily="@font/nunito_medium"
         android:text="Masuk"
         android:textColor="#106F85"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/punyaAkunView"
-        app:layout_constraintTop_toBottomOf="@+id/ButtonDaftarGuru"
-        app:layout_constraintVertical_bias="0.0" />
-
+        app:layout_constraintStart_toStartOf="@+id/punyaAkunView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

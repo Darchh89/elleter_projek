@@ -10,8 +10,7 @@ public interface ApiService {
     Call<RegisterGuruResponse> registerGuru(@Body RegisterGuruRequest registerGuruRequest);
 
     // Endpoint untuk registrasi SISWA (TIDAK memerlukan token)
-    @POST("auth/register-siswa")
-    Call<RegisterSiswaResponse> registerSiswa(@Body RegisterSiswaRequest registerSiswaRequest);
+
 
     // Endpoint untuk login
     @POST("auth/login")
