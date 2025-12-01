@@ -2,7 +2,7 @@ package com.example.eletterprojek;
 
 import com.google.gson.annotations.SerializedName;
 
-public class AuthResponse {
+public class    AuthResponse {
 
     @SerializedName("success")
     private boolean success;

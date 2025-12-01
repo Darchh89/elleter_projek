@@ -8,11 +8,10 @@
     tools:context=".MainActivity">
 
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardGlass"
-        android:layout_width="345dp"
-        android:layout_height="407dp"
+        android:layout_width="350dp"
+        android:layout_height="391dp"
         android:layout_margin="32dp"
         android:alpha="1"
         android:backgroundTint="#CCFFFFFF"
@@ -25,8 +24,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="358dp"
-            android:layout_height="409dp"
+            android:layout_width="350dp"
+            android:layout_height="391dp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -37,31 +36,33 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="E - Letter"
-                android:textColor="#106F85"
-                android:textSize="24sp"
+                android:textColor="#000000"
+                android:textSize="32sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/subtitleText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="301dp"
+                android:layout_height="36dp"
                 android:layout_marginTop="4dp"
+                android:gravity="center"
                 android:text="Sistem Manajemen Surat dan Dispensasi"
-                android:textColor="#106F85"
+                android:textColor="#000000"
                 android:textSize="14sp" />
 
             <!-- Keterangan bawah -->
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnGuru"
-                android:layout_width="263dp"
-                android:layout_height="wrap_content"
+                android:layout_width="259dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="28dp"
                 android:backgroundTint="#106F85"
                 android:padding="12dp"
                 android:text="Lanjutkan sebagai Guru"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
+                android:textSize="14sp"
                 app:backgroundTint="#1F2937"
                 app:cornerRadius="12dp"
                 app:icon="@drawable/book"
@@ -72,8 +73,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSiswa"
-                android:layout_width="263dp"
-                android:layout_height="wrap_content"
+                android:layout_width="259dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/bt_transparan"
                 android:padding="12dp"

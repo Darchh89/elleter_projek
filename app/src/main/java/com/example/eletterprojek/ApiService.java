@@ -5,9 +5,15 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface ApiService {
+    // Endpoint untuk registrasi GURU (memerlukan token)
     @POST("auth/register")
     Call<RegisterGuruResponse> registerGuru(@Body RegisterGuruRequest registerGuruRequest);
 
+    // Endpoint untuk registrasi SISWA (TIDAK memerlukan token)
+    @POST("auth/register-siswa")
+    Call<RegisterSiswaResponse> registerSiswa(@Body RegisterSiswaRequest registerSiswaRequest);
+
+    // Endpoint untuk login
     @POST("auth/login")
     Call<LoginResponse> login(@Body LoginRequest loginRequest);
 }

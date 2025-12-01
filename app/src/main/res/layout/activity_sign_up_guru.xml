@@ -8,6 +8,27 @@
     android:background="@color/white"
     tools:context=".masuk_siswa">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarBack4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:elevation="4dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/weui_back_filled">
+
+        <TextView
+            android:layout_width="254dp"
+            android:layout_height="25dp"
+            android:text="Kembali ke Halaman Utama"
+            android:textColor="#A0A0A0"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="56dp"
+            tools:layout_editor_absoluteY="19dp" />
+    </androidx.appcompat.widget.Toolbar>
+
     <TextView
         android:id="@+id/ViewBuatAkun"
         android:layout_width="wrap_content"
@@ -65,7 +86,7 @@
         android:background="@drawable/inputbergambar"
         android:drawableStart="@drawable/address"
         android:drawablePadding="12dp"
-        android:hint="Masukan NIP"
+        android:hint="Masukan Email"
         android:inputType="textEmailAddress"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"

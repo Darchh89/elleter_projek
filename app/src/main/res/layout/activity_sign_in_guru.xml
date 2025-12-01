@@ -20,24 +20,10 @@
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
-            android:id="@+id/TextDaftar"
-            android:layout_width="105dp"
-            android:layout_height="57dp"
-            android:layout_marginStart="165dp"
-            android:layout_marginTop="81dp"
-            android:backgroundTint="#FF7235"
-            android:clickable="true"
-            android:text="Daftar"
-            android:textColor="#375FE5"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/BtnDaftar"
-            app:layout_constraintTop_toBottomOf="@+id/buttonMasuk" />
-
-        <TextView
             android:id="@+id/textView11"
             android:layout_width="201dp"
             android:layout_height="57dp"
-            android:layout_marginTop="88dp"
+            android:layout_marginTop="112dp"
             android:fontFamily="@font/montserrat_extrabold"
             android:gravity="center"
             android:text="E - Letter"
@@ -45,6 +31,7 @@
             android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.519"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -82,14 +69,49 @@
             android:id="@+id/BtnDaftar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="356dp"
             android:fontFamily="@font/nunito_medium"
             android:text="Belum punya akun?"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/buttonMasuk"
-            app:layout_constraintHorizontal_bias="0.344"
+            app:layout_constraintHorizontal_bias="0.375"
             app:layout_constraintStart_toStartOf="@+id/buttonMasuk"
             app:layout_constraintTop_toBottomOf="@+id/buttonMasuk" />
+
+        <TextView
+            android:id="@+id/TextDaftar"
+            android:layout_width="105dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="356dp"
+            android:backgroundTint="#FF7235"
+            android:clickable="true"
+            android:text="Daftar"
+            android:textColor="#FF7235"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/BtnDaftar"
+            app:layout_constraintTop_toBottomOf="@+id/buttonMasuk" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:elevation="4dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/weui_back_filled">
+
+            <TextView
+                android:layout_width="254dp"
+                android:layout_height="25dp"
+                android:text="Kembali ke Halaman Utama"
+                android:textColor="#A0A0A0"
+                android:textSize="16sp"
+                tools:layout_editor_absoluteX="56dp"
+                tools:layout_editor_absoluteY="19dp" />
+        </androidx.appcompat.widget.Toolbar>
 
         <EditText
             android:id="@+id/IDGuru"
@@ -119,10 +141,11 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/montserrat_medium"
             android:gravity="center"
-            android:text="Bergabung dengan sistem E-Letter"
+            android:text="Masuk ke E - Latter"
             android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
 

@@ -8,37 +8,54 @@
     android:background="@color/white"
     tools:context=".masuk_siswa">
 
-    <TextView
-        android:id="@+id/punyaAkunView"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarBack3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="81dp"
+        android:background="@android:color/white"
+        android:elevation="4dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/weui_back_filled">
+
+        <TextView
+            android:layout_width="254dp"
+            android:layout_height="25dp"
+            android:text="Kembali ke Halaman Utama"
+            android:textColor="#A0A0A0"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="56dp"
+            tools:layout_editor_absoluteY="19dp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/punyaAkunView"
+        android:layout_width="146dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="264dp"
         android:fontFamily="@font/nunito_medium"
         android:text="Sudah punya akun?"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/ButtonDaftarGuru"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.401"
         app:layout_constraintStart_toStartOf="@+id/ButtonDaftarGuru"
-        app:layout_constraintTop_toBottomOf="@+id/ButtonDaftarGuru"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/ButtonDaftarGuru" />
 
     <TextView
         android:id="@+id/daftarView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="81dp"
+        android:layout_width="49dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="264dp"
         android:layout_marginEnd="124dp"
         android:fontFamily="@font/nunito_medium"
         android:text="Masuk"
         android:textColor="#106F85"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/punyaAkunView"
-        app:layout_constraintTop_toBottomOf="@+id/ButtonDaftarGuru"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/ButtonDaftarGuru" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordInputLayout"
@@ -128,7 +145,7 @@
         android:drawableStart="@drawable/address"
         android:drawablePadding="12dp"
         android:hint="Email"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:textColor="#000000"
@@ -139,14 +156,16 @@
 
     <TextView
         android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="213dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="120dp"
         android:layout_marginTop="88dp"
+        android:layout_marginEnd="120dp"
         android:fontFamily="@font/montserrat_extrabold"
         android:gravity="center"
         android:text="Buat Akun"
         android:textColor="#000000"
-        android:textSize="33sp"
+        android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -170,17 +189,17 @@
 
     <TextView
         android:id="@+id/TextViewBergabung"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_width="292dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="36dp"
         android:fontFamily="@font/montserrat"
         android:gravity="center"
         android:text="Bergabung dengan sistem E-Letter"
         android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView11"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toTopOf="@+id/textView11" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
