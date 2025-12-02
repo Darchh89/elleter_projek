@@ -194,9 +194,10 @@
 
     <TextView
         android:id="@+id/punyaAkunView"
-        android:layout_width="192dp"
-        android:layout_height="20dp"
-        android:layout_marginBottom="28dp"
+        android:layout_width="141dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="65dp"
         android:fontFamily="@font/nunito_medium"
         android:text="Sudah punya akun?"
         android:textSize="16sp"
@@ -209,13 +210,12 @@
         android:id="@+id/DaftarView"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:layout_marginStart="145dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="65dp"
         android:fontFamily="@font/nunito_medium"
         android:text="Masuk"
         android:textColor="#106F85"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/punyaAkunView" />
+        app:layout_constraintStart_toEndOf="@+id/punyaAkunView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,16 @@
 package com.example.eletterprojek;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -65,6 +70,46 @@ public class login_siswa extends AppCompatActivity {
             // Arahkan ke halaman pendaftaran siswa yang benar
             Intent intent = new Intent(login_siswa.this, masuk_siswa.class);
             startActivity(intent);
+        });
+
+        // --- Logika Teks "Lupa Password" ---
+        tvLupaPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Inflate layout popup
+                LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+                View popupView = inflater.inflate(R.layout.activity_popup_lupa_sandi, null);
+
+                // Buat Dialog untuk popup
+                final Dialog popupDialog = new Dialog(login_siswa.this);
+                popupDialog.setContentView(popupView);
+
+                // Atur agar background dialog transparan, ini penting agar sudut rounded dari layout XML terlihat
+                if (popupDialog.getWindow() != null) {
+                    popupDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                }
+
+                // Mengonversi dp ke piksel untuk ukuran popup
+                final float scale = getResources().getDisplayMetrics().density;
+                int width = (int) (282 * scale + 0.5f);
+
+                // Atur ukuran dialog, tinggi diatur WRAP_CONTENT agar lebih fleksibel
+                popupDialog.getWindow().setLayout(width, WindowManager.LayoutParams.WRAP_CONTENT);
+
+                // Tampilkan dialog. Background di belakangnya akan otomatis menjadi gelap.
+                popupDialog.show();
+
+                // Temukan tombol di dalam popup dan atur listener
+                Button hubungiAdmin = popupView.findViewById(R.id.btn_hubungi_admin);
+                hubungiAdmin.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v_inner) {
+                        // Logika saat tombol "Hubungi Admin" ditekan
+                        Toast.makeText(login_siswa.this, "Menghubungi admin...", Toast.LENGTH_SHORT).show();
+                        popupDialog.dismiss(); // Tutup dialog
+                    }
+                });
+            }
         });
 
     }

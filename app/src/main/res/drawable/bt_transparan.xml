@@ -8,7 +8,7 @@
     <!-- Garis pinggir hitam tipis -->
     <stroke
         android:width="2dp"
-        android:color="@color/black" />  <!-- hitam 20% opacity -->
+        android:color="@color/rasi" />  <!-- hitam 20% opacity -->
 
     <!-- Radius sama seperti tombol utama -->
     <corners android:radius="12dp" />

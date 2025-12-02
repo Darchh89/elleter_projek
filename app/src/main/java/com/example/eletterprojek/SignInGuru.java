@@ -1,10 +1,16 @@
 package com.example.eletterprojek;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,7 +27,7 @@ public class SignInGuru extends AppCompatActivity {
 
     private EditText etUserCode, etPassword;
     private MaterialButton btnLogin;
-    private TextView textDaftar;
+    private TextView textDaftar, lupaSandi;
 
     @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
@@ -33,6 +39,7 @@ public class SignInGuru extends AppCompatActivity {
         etPassword = findViewById(R.id.PasswordLoginG);
         btnLogin = findViewById(R.id.buttonMasuk);
         textDaftar = findViewById(R.id.TextDaftar);
+        lupaSandi = findViewById(R.id.textView12); // ID untuk "Lupa Kata Sandi?"
 
         // --- Menerima dan mengisi User Code dari halaman pendaftaran ---
         Intent intent = getIntent();
@@ -41,6 +48,13 @@ public class SignInGuru extends AppCompatActivity {
             etUserCode.setText(userCode);
         }
         // --------------------------------------------------------------
+
+        lupaSandi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup();
+            }
+        });
 
         textDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +71,29 @@ public class SignInGuru extends AppCompatActivity {
             }
         });
     }
+
+    private void showPopup() {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.activity_popup_lupa_sandi);
+
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.getWindow().setGravity(Gravity.CENTER);
+
+        Button hubungiAdmin = dialog.findViewById(R.id.btn_hubungi_admin);
+        hubungiAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(SignInGuru.this, "Menghubungi admin...", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+    }
+
 
     private void loginUser() {
         String userCode = etUserCode.getText().toString().trim();
