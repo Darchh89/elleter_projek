@@ -25,12 +25,11 @@
         android:layout_height="45dp"
         android:layout_below="@id/popup_title"
         android:layout_centerHorizontal="true"
-        android:backgroundTint="#ffffff"
         android:drawableStart="@drawable/logo_smkn_2_singosari"
         android:drawablePadding="8dp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:text="Hubungi Admin"
-        android:textColor="@color/black" />
+        android:textColor="@color/white" />
 
 </RelativeLayout>

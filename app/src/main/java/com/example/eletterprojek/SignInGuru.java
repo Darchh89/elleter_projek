@@ -43,11 +43,11 @@ public class SignInGuru extends AppCompatActivity {
 
         // --- Menerima dan mengisi User Code dari halaman pendaftaran ---
         Intent intent = getIntent();
-        if (intent != null && intent.hasExtra("USER_CODE")) {
-            String userCode = intent.getStringExtra("USER_CODE");
-            etUserCode.setText(userCode);
+        if (intent != null && intent.hasExtra("NEW_USER_CODE")) {
+            String newUserCode = intent.getStringExtra("NEW_USER_CODE");
+            etUserCode.setText(newUserCode);
         }
-        // --------------------------------------------------------------
+        // ----------------------------------------------------------
 
         lupaSandi.setOnClickListener(new View.OnClickListener() {
             @Override

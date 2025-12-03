@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -20,7 +19,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class masuk_siswa extends AppCompatActivity {
+public class Register_siswa extends AppCompatActivity {
 
     // Sesuaikan tipe dan nama variabel dengan XML yang baru
     private EditText etNamaLengkap, etEmail;
@@ -33,7 +32,7 @@ public class masuk_siswa extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_masuk_siswa);
+        setContentView(R.layout.activity_register_siswa);
 
         // Gunakan ID yang sudah diperbaiki dari file layout
         etNamaLengkap = findViewById(R.id.NamaLengkapSiswa);
@@ -95,10 +94,10 @@ public class masuk_siswa extends AppCompatActivity {
                 btnDaftar.setText("Daftar");
 
                 if (response.isSuccessful() && response.body() != null) {
-                    Toast.makeText(masuk_siswa.this, "Pendaftaran berhasil! Silakan masuk.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Register_siswa.this, "Pendaftaran berhasil! Silakan masuk.", Toast.LENGTH_LONG).show();
 
                     // Kembali ke halaman login setelah berhasil mendaftar
-                    Intent intent = new Intent(masuk_siswa.this, login_siswa.class);
+                    Intent intent = new Intent(Register_siswa.this, login_siswa.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                     finish();
@@ -111,7 +110,7 @@ public class masuk_siswa extends AppCompatActivity {
                     } catch (Exception e) {
                         Log.e("RegisterSiswa", "Gagal membaca pesan error", e);
                     }
-                    Toast.makeText(masuk_siswa.this, errorMessage, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register_siswa.this, errorMessage, Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -119,7 +118,7 @@ public class masuk_siswa extends AppCompatActivity {
             public void onFailure(Call<RegisterGuruResponse> call, Throwable t) {
                 btnDaftar.setEnabled(true);
                 btnDaftar.setText("Daftar");
-                Toast.makeText(masuk_siswa.this, "Gagal terhubung ke server: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Register_siswa.this, "Gagal terhubung ke server: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.e("RegisterSiswaError", "API call failed: ", t);
             }
         });

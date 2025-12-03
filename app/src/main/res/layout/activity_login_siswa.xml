@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:touchscreenBlocksFocus="true"
-    tools:context=".LoginSiswa">
+    tools:context=".login_siswa">
 
 
     <TextView

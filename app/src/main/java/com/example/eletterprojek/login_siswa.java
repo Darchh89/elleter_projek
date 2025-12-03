@@ -68,7 +68,7 @@ public class login_siswa extends AppCompatActivity {
         // --- Logika Teks "Daftar" ---
         tvDaftar.setOnClickListener(v -> {
             // Arahkan ke halaman pendaftaran siswa yang benar
-            Intent intent = new Intent(login_siswa.this, masuk_siswa.class);
+            Intent intent = new Intent(login_siswa.this, Register_siswa.class);
             startActivity(intent);
         });
 

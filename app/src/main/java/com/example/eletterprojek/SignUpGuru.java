@@ -104,9 +104,14 @@ public class SignUpGuru extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     RegisterGuruResponse registerResponse = response.body();
                     Toast.makeText(SignUpGuru.this, registerResponse.getMessage(), Toast.LENGTH_LONG).show();
+                    
+                    // Mengambil user_code dari response dan mengirimkannya ke halaman login
+                    String newUserCode = registerResponse.getUserCode(); // Asumsi method ini ada di RegisterGuruResponse
 
-                    // Arahkan ke halaman login setelah berhasil
                     Intent intent = new Intent(SignUpGuru.this, SignInGuru.class);
+                    if (newUserCode != null && !newUserCode.isEmpty()) {
+                        intent.putExtra("NEW_USER_CODE", newUserCode);
+                    }
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                     finish();
