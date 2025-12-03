@@ -24,8 +24,8 @@ public class KamuPilihakuApaDia extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(KamuPilihakuApaDia.this, SignInGuru.class);
-
                 startActivity(intent);
+
             }
         });
 
