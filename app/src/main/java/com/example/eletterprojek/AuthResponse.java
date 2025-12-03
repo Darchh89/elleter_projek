@@ -10,11 +10,9 @@ public class    AuthResponse {
     @SerializedName("message")
     private String message;
 
-    // Tambahkan inner class untuk menangkap objek "data" dari JSON
     @SerializedName("data")
     private Data data;
 
-    // --- Getter ---
 
     public String getMessage() {
         return message;
@@ -24,14 +22,11 @@ public class    AuthResponse {
         return data;
     }
 
-    // ==========================================================
-    // INI YANG PERLU ANDA TAMBAHKAN
+
     public boolean isSuccess() {
         return success;
     }
-    // ==========================================================
 
-    // Inner Class untuk objek "data"
     public static class Data {
         @SerializedName("token")
         private String token;

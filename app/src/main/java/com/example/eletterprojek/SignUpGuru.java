@@ -35,7 +35,6 @@ public class SignUpGuru extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_guru);
 
-        // Inisialisasi semua komponen view
         etNamaLengkap = findViewById(R.id.NamaLengkap);
         etEmail = findViewById(R.id.EmailGuru);
         etToken = findViewById(R.id.Token);
@@ -43,47 +42,37 @@ public class SignUpGuru extends AppCompatActivity {
         tvMasuk = findViewById(R.id.DaftarView);
         toolbarBack = findViewById(R.id.toolbarBack);
 
-        // Inisialisasi TextInputLayout untuk password, sesuai dengan XML
         tilPassword = findViewById(R.id.PasswordGuru);
         tilConfirmPassword = findViewById(R.id.ConfirmPasswordGuru);
 
-        // --- Logika Tombol Kembali di Toolbar ---
         toolbarBack.setOnClickListener(v -> {
-            // Kembali ke halaman pemilihan peran
             Intent intent = new Intent(SignUpGuru.this, KamuPilihakuApaDia.class);
             startActivity(intent);
             finish();
         });
 
-        // --- Logika Tombol Daftar ---
         btnDaftar.setOnClickListener(v -> handleRegisterGuru());
 
-        // --- Logika Teks "Masuk" ---
         tvMasuk.setOnClickListener(v -> {
-            // Arahkan ke halaman Login Guru (SignInGuru)
             Intent intent = new Intent(SignUpGuru.this, SignInGuru.class);
             startActivity(intent);
         });
     }
 
     private void handleRegisterGuru() {
-        // Hapus pesan error sebelumnya (jika ada)
         tilConfirmPassword.setError(null);
 
         String fullname = etNamaLengkap.getText().toString().trim();
         String email = etEmail.getText().toString().trim();
-        // Ambil teks dari dalam TextInputLayout
         String password = tilPassword.getEditText().getText().toString().trim();
         String confirmPassword = tilConfirmPassword.getEditText().getText().toString().trim();
         String token = etToken.getText().toString().trim();
 
-        // Validasi kolom tidak boleh kosong
         if (fullname.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || token.isEmpty()) {
             Toast.makeText(this, "Semua kolom wajib diisi!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Validasi konfirmasi password harus sama
         if (!password.equals(confirmPassword)) {
             tilConfirmPassword.setError("Password tidak cocok!"); // Tampilkan error di bawah kolom
             return;
@@ -105,8 +94,7 @@ public class SignUpGuru extends AppCompatActivity {
                     RegisterGuruResponse registerResponse = response.body();
                     Toast.makeText(SignUpGuru.this, registerResponse.getMessage(), Toast.LENGTH_LONG).show();
                     
-                    // Mengambil user_code dari response dan mengirimkannya ke halaman login
-                    String newUserCode = registerResponse.getUserCode(); // Asumsi method ini ada di RegisterGuruResponse
+                    String newUserCode = registerResponse.getUserCode();
 
                     Intent intent = new Intent(SignUpGuru.this, SignInGuru.class);
                     if (newUserCode != null && !newUserCode.isEmpty()) {

@@ -21,7 +21,6 @@ import retrofit2.Response;
 
 public class Register_siswa extends AppCompatActivity {
 
-    // Sesuaikan tipe dan nama variabel dengan XML yang baru
     private EditText etNamaLengkap, etEmail;
     private TextInputLayout tilPassword, tilConfirmPassword;
     private Button btnDaftar;
@@ -34,7 +33,6 @@ public class Register_siswa extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_siswa);
 
-        // Gunakan ID yang sudah diperbaiki dari file layout
         etNamaLengkap = findViewById(R.id.NamaLengkapSiswa);
         etEmail = findViewById(R.id.EmailSiswa);
         tilPassword = findViewById(R.id.PasswordSiswa);
@@ -43,29 +41,22 @@ public class Register_siswa extends AppCompatActivity {
         tvMasuk = findViewById(R.id.MasukView);
         toolbarBack = findViewById(R.id.toolbarBack);
 
-        // --- Logika Tombol Kembali di Toolbar ---
         toolbarBack.setOnClickListener(v -> {
-            // Cukup tutup halaman ini untuk kembali ke halaman LoginSiswa
             finish();
         });
 
-        // --- Logika Tombol "Masuk" ---
         tvMasuk.setOnClickListener(v -> {
-            // Cukup tutup halaman ini untuk kembali ke halaman LoginSiswa
             finish();
         });
 
-        // --- Logika Tombol "Daftar" ---
         btnDaftar.setOnClickListener(v -> registerSiswa());
     }
 
     private void registerSiswa() {
-        // Hapus pesan error sebelumnya
         tilConfirmPassword.setError(null);
 
         String fullname = etNamaLengkap.getText().toString().trim();
         String email = etEmail.getText().toString().trim();
-        // Ambil teks dari dalam TextInputLayout
         String password = tilPassword.getEditText().getText().toString().trim();
         String confirmPassword = tilConfirmPassword.getEditText().getText().toString().trim();
 
@@ -75,7 +66,6 @@ public class Register_siswa extends AppCompatActivity {
         }
 
         if (!password.equals(confirmPassword)) {
-            // Tampilkan pesan error di bawah kolom konfirmasi password
             tilConfirmPassword.setError("Password dan konfirmasi password tidak cocok");
             return;
         }
@@ -83,7 +73,6 @@ public class Register_siswa extends AppCompatActivity {
         btnDaftar.setEnabled(false);
         btnDaftar.setText("Mendaftar...");
 
-        // API call tetap sama, menggunakan RegisterGuruRequest dengan token null
         RegisterGuruRequest registerRequest = new RegisterGuruRequest(fullname, email, password, null);
         Call<RegisterGuruResponse> call = ApiClient.getApiService().registerGuru(registerRequest);
 
@@ -96,7 +85,6 @@ public class Register_siswa extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     Toast.makeText(Register_siswa.this, "Pendaftaran berhasil! Silakan masuk.", Toast.LENGTH_LONG).show();
 
-                    // Kembali ke halaman login setelah berhasil mendaftar
                     Intent intent = new Intent(Register_siswa.this, login_siswa.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);

@@ -39,9 +39,8 @@ public class SignInGuru extends AppCompatActivity {
         etPassword = findViewById(R.id.PasswordLoginG);
         btnLogin = findViewById(R.id.buttonMasuk);
         textDaftar = findViewById(R.id.TextDaftar);
-        lupaSandi = findViewById(R.id.textView12); // ID untuk "Lupa Kata Sandi?"
+        lupaSandi = findViewById(R.id.textView12);
 
-        // --- Menerima dan mengisi User Code dari halaman pendaftaran ---
         Intent intent = getIntent();
         if (intent != null && intent.hasExtra("NEW_USER_CODE")) {
             String newUserCode = intent.getStringExtra("NEW_USER_CODE");
@@ -114,13 +113,11 @@ public class SignInGuru extends AppCompatActivity {
                     LoginResponse loginResponse = response.body();
                     Toast.makeText(SignInGuru.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
 
-                    // Navigasi ke halaman Beranda
                     Intent intent = new Intent(SignInGuru.this, Beranda.class);
                     startActivity(intent);
-                    finish(); // Menutup halaman login agar tidak bisa kembali
+                    finish();
 
                 } else {
-                    // Tangani error response
                     Toast.makeText(SignInGuru.this, "Login Gagal. Periksa kembali user code dan password Anda.", Toast.LENGTH_SHORT).show();
                 }
             }
