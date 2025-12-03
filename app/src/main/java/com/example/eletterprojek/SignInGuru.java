@@ -115,9 +115,10 @@ public class SignInGuru extends AppCompatActivity {
 
                     Intent intent = new Intent(SignInGuru.this, Beranda.class);
                     startActivity(intent);
-                    finish();
+                    finish(); // Menutup halaman login agar tidak bisa kembali
 
                 } else {
+                    // Tangani error response
                     Toast.makeText(SignInGuru.this, "Login Gagal. Periksa kembali user code dan password Anda.", Toast.LENGTH_SHORT).show();
                 }
             }

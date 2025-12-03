@@ -9,6 +9,9 @@ public interface ApiService {
     @POST("auth/register")
     Call<RegisterGuruResponse> registerGuru(@Body RegisterGuruRequest registerGuruRequest);
 
+    @POST("auth/register")
+    Call<RegisterSiswaResponse> registerSiswa(@Body RegisterSiswaRequest registerSiswaRequest);
+
     // Endpoint login
     @POST("auth/login")
     Call<LoginResponse> login(@Body LoginRequest loginRequest);
