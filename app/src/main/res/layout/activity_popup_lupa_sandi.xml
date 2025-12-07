@@ -21,8 +21,8 @@
 
     <Button
         android:id="@+id/btn_hubungi_admin"
-        android:layout_width="216dp"
-        android:layout_height="45dp"
+        android:layout_width="207dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/popup_title"
         android:layout_centerHorizontal="true"
         android:drawableStart="@drawable/logo_smkn_2_singosari"
