@@ -44,6 +44,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="62dp"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/group" />
+
         <TextView
             android:id="@+id/titleText"
             android:layout_width="wrap_content"
@@ -68,8 +74,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnGuru"
-            android:layout_width="259dp"
-            android:layout_height="50dp"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:backgroundTint="#39A2DB"
             android:padding="12dp"
@@ -87,19 +93,22 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSiswa"
-            android:layout_width="259dp"
-            android:layout_height="50dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:background="@drawable/bt_transparan"
             android:padding="12dp"
             android:text="Lanjutkan sebagai Siswa"
             android:textAllCaps="false"
             android:textColor="#39A2DB"
+            android:textSize="14sp"
             app:cornerRadius="12dp"
             app:icon="@drawable/material_symbols_person"
             app:iconGravity="textStart"
             app:iconPadding="8dp"
-            app:strokeColor="@color/rasi" />
+            app:iconTint="#39A2DB"
+            app:strokeColor="#39A2DB"
+            app:strokeWidth="2dp"/>
 
 
         <TextView
