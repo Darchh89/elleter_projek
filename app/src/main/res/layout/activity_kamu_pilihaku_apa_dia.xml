@@ -8,101 +8,15 @@
     tools:context=".MainActivity">
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardGlass"
-        android:layout_width="350dp"
-        android:layout_height="391dp"
-        android:layout_margin="32dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:alpha="1"
-        android:backgroundTint="#CCFFFFFF"
-        android:padding="24dp"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="350dp"
-            android:layout_height="391dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-
-            <TextView
-                android:id="@+id/titleText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="E - Letter"
-                android:textColor="#000000"
-                android:textSize="32sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/subtitleText"
-                android:layout_width="301dp"
-                android:layout_height="36dp"
-                android:layout_marginTop="4dp"
-                android:gravity="center"
-                android:text="Sistem Manajemen Surat dan Dispensasi"
-                android:textColor="#000000"
-                android:textSize="14sp" />
-
-            <!-- Keterangan bawah -->
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnGuru"
-                android:layout_width="259dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="28dp"
-                android:backgroundTint="#106F85"
-                android:padding="12dp"
-                android:text="Lanjutkan sebagai Guru"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                app:backgroundTint="#1F2937"
-                app:cornerRadius="12dp"
-                app:icon="@drawable/book"
-                app:iconGravity="textStart"
-                app:iconPadding="8dp"
-                app:iconTint="@android:color/white" />
-
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSiswa"
-                android:layout_width="259dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/bt_transparan"
-                android:padding="12dp"
-                android:text="Lanjutkan sebagai Siswa"
-                android:textAllCaps="false"
-                android:textColor="#106F85"
-                app:backgroundTint="#FFFFFF"
-                app:cornerRadius="12dp"
-                app:icon="@drawable/material_symbols_person"
-                app:iconGravity="textStart"
-                app:iconPadding="8dp"
-                app:strokeColor="@color/rasi" />
-
-
-            <TextView
-                android:id="@+id/textBottom"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="8dp"
-                android:text="Pilih peran anda untuk melanjutkan"
-                android:textColor="#333333"
-                android:textSize="13sp" />
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rectangle_16" />
 
     <TextView
         android:id="@+id/textView3"
@@ -117,5 +31,87 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="350dp"
+        android:layout_height="391dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="E - Letter"
+            android:textColor="#000000"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/subtitleText"
+            android:layout_width="301dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:text="Sistem Manajemen Surat dan Dispensasi"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <!-- Keterangan bawah -->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGuru"
+            android:layout_width="259dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="28dp"
+            android:backgroundTint="#39A2DB"
+            android:padding="12dp"
+            android:text="Lanjutkan sebagai Guru"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            app:backgroundTint="#1F2937"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/book"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            app:iconTint="@android:color/white" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSiswa"
+            android:layout_width="259dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bt_transparan"
+            android:padding="12dp"
+            android:text="Lanjutkan sebagai Siswa"
+            android:textAllCaps="false"
+            android:textColor="#39A2DB"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/material_symbols_person"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            app:strokeColor="@color/rasi" />
+
+
+        <TextView
+            android:id="@+id/textBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp"
+            android:text="Pilih peran anda untuk melanjutkan"
+            android:textColor="#333333"
+            android:textSize="13sp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

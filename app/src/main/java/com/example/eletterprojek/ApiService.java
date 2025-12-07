@@ -4,12 +4,14 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 
-public interface ApiService {
-    // Endpoint registrasi
+public interface
+ApiService {
+    // Endpoint registrasi guru
     @POST("auth/register")
     Call<RegisterGuruResponse> registerGuru(@Body RegisterGuruRequest registerGuruRequest);
 
-    @POST("auth/register")
+    // Endpoint registrasi siswa
+    @POST("auth/register_siswa")
     Call<RegisterSiswaResponse> registerSiswa(@Body RegisterSiswaRequest registerSiswaRequest);
 
     // Endpoint login

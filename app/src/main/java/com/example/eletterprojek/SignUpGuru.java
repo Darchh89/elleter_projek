@@ -73,6 +73,11 @@ public class SignUpGuru extends AppCompatActivity {
             return;
         }
 
+        if (!email.contains("@gmail.com")) {
+            Toast.makeText(this, "mohon masukan alamat email yang benar", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         if (!password.equals(confirmPassword)) {
             tilConfirmPassword.setError("Password tidak cocok!"); // Tampilkan error di bawah kolom
             return;
