@@ -19,9 +19,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-// Impor yang diperlukan untuk TextInputLayout
-import com.google.android.material.textfield.TextInputLayout;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,7 +26,8 @@ import retrofit2.Response;
 public class login_siswa extends AppCompatActivity {
 
     private EditText etIdSiswa;
-    private TextInputLayout tilPassword;
+    // Mengubah tipe dari TextInputLayout menjadi EditText agar sesuai dengan XML
+    private EditText etPassword;
     private Button btnMasuk;
     private TextView tvDaftar, tvLupaPassword;
     private Toolbar toolbarBack;
@@ -45,10 +43,11 @@ public class login_siswa extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("user_session", MODE_PRIVATE);
 
         etIdSiswa = findViewById(R.id.IDSiswa);
-        tilPassword = findViewById(R.id.PasswordLoginSiswaLayout);
+        // Mengubah nama variabel dan memastikan tipe datanya benar
+        etPassword = findViewById(R.id.PasswordLoginS);
         btnMasuk = findViewById(R.id.buttonMasuk2);
         tvDaftar = findViewById(R.id.TextDaftar);
-        toolbarBack = findViewById(R.id.toolbarBack2);
+        toolbarBack = findViewById(R.id.toolbarBack);
         tvLupaPassword = findViewById(R.id.textView12);
 
 
@@ -92,7 +91,8 @@ public class login_siswa extends AppCompatActivity {
 
     private void handleLogin() {
         String userCode = etIdSiswa.getText().toString().trim();
-        String password = tilPassword.getEditText().getText().toString().trim();
+        // Mengambil teks langsung dari EditText, bukan melalui .getEditText()
+        String password = etPassword.getText().toString().trim();
 
         if (userCode.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "ID dan Password tidak boleh kosong!", Toast.LENGTH_SHORT).show();

@@ -9,6 +9,27 @@
     android:touchscreenBlocksFocus="true"
     tools:context=".login_siswa">
 
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarBack"
+        android:layout_width="275dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="25dp"
+        android:background="@android:color/white"
+        android:elevation="4dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/weui_back_filled">
+
+        <TextView
+            android:layout_width="254dp"
+            android:layout_height="25dp"
+            android:text="Kembali ke Halaman Utama"
+            android:textColor="#A0A0A0"
+            android:textSize="16sp" />
+    </androidx.appcompat.widget.Toolbar>
+
     <Button
         android:id="@+id/buttonMasuk2"
         android:layout_width="0dp"
@@ -25,9 +46,9 @@
         app:iconGravity="textStart"
         app:iconPadding="10dp"
         app:iconTint="@null"
-        app:layout_constraintEnd_toEndOf="@+id/PasswordLoginG"
-        app:layout_constraintStart_toStartOf="@+id/PasswordLoginG"
-        app:layout_constraintTop_toBottomOf="@+id/PasswordLoginG" />
+        app:layout_constraintEnd_toEndOf="@+id/PasswordLoginS"
+        app:layout_constraintStart_toStartOf="@+id/PasswordLoginS"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordLoginS" />
 
     <TextView
         android:id="@+id/textViewBergabung"
@@ -44,7 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <EditText
-        android:id="@+id/IDGuru"
+        android:id="@+id/IDSiswa"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginStart="24dp"
@@ -67,30 +88,28 @@
 
     <TextView
         android:id="@+id/TextDaftar"
-        android:layout_width="105dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
         android:backgroundTint="#375FE5"
         android:clickable="true"
         android:fontFamily="@font/montserrat"
         android:text="Daftar"
         android:textColor="#FE9F45"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/BtnDaftar"
-        app:layout_constraintTop_toBottomOf="@+id/buttonMasuk2" />
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/BtnDaftar"
+        app:layout_constraintStart_toEndOf="@+id/BtnDaftar" />
 
     <TextView
         android:id="@+id/textView11"
-        android:layout_width="201dp"
-        android:layout_height="57dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
         android:fontFamily="@font/montserrat_extrabold"
         android:gravity="center"
         android:text="E - Letter"
         android:textColor="#000000"
-        android:textSize="36sp"
+        android:textSize="33sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,25 +124,25 @@
         android:text="Lupa Kata Sandi?"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/PasswordLoginG"
-        app:layout_constraintTop_toBottomOf="@+id/PasswordLoginG" />
+        app:layout_constraintEnd_toEndOf="@+id/PasswordLoginS"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordLoginS" />
 
     <TextView
         android:id="@+id/BtnDaftar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="85dp"
-        android:fontFamily="@font/montserrat_bold"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/montserrat_medium"
         android:text="Belum punya akun?"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.589"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonMasuk2" />
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/buttonMasuk2"
+        app:layout_constraintStart_toStartOf="@+id/buttonMasuk2" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/PasswordLoginG"
+        android:id="@+id/PasswordLoginS"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginTop="12dp"
@@ -136,8 +155,8 @@
         android:paddingEnd="16dp"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/IDGuru"
-        app:layout_constraintStart_toStartOf="@+id/IDGuru"
-        app:layout_constraintTop_toBottomOf="@+id/IDGuru" />
+        app:layout_constraintEnd_toEndOf="@+id/IDSiswa"
+        app:layout_constraintStart_toStartOf="@+id/IDSiswa"
+        app:layout_constraintTop_toBottomOf="@+id/IDSiswa" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

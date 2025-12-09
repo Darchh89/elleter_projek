@@ -1,24 +1,17 @@
 package com.example.eletterprojek;
 
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class popup_lupa_sandi extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+        // Baris ini menghubungkan file Java dengan file layout XML-nya.
         setContentView(R.layout.activity_popup_lupa_sandi);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        // Kode yang menyebabkan crash telah dihapus.
+        // Kode tersebut mencoba mencari view dengan ID "main" yang tidak ada di layout Anda.
     }
 }

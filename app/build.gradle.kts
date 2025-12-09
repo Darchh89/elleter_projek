@@ -29,9 +29,16 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.navigation.fragment)
+    implementation(libs.navigation.ui)
     // 1. Deklarasikan variabel untuk versi di sini
     val retrofitVersion = "2.11.0" // Versi Retrofit yang lebih baru dan stabil
     val okhttpVersion = "4.12.0"   // Versi OkHttp yang cocok dengan Retrofit 2.11.0

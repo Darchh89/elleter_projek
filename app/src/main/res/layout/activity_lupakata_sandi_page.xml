@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
+    tools:context=".LupakataSandiPage">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="213dp"
+        tools:layout_editor_absoluteY="176dp">
+
+        <Button
+            android:id="@+id/buttonMasuk4"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#FE9F45"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:text="Kirim"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:iconGravity="textStart"
+            app:iconPadding="10dp"
+            app:iconTint="@null"
+            app:layout_constraintEnd_toEndOf="@+id/IDSiswa"
+            app:layout_constraintHorizontal_bias="0.156"
+            app:layout_constraintStart_toStartOf="@+id/IDSiswa"
+            app:layout_constraintTop_toBottomOf="@+id/IDSiswa"
+            app:strokeColor="#FF7235"
+            app:strokeWidth="2dp" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarBack"
+            android:layout_width="254dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="25dp"
+            android:background="@android:color/white"
+            android:elevation="4dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/weui_back_filled">
+
+            <TextView
+                android:layout_width="254dp"
+                android:layout_height="25dp"
+                android:text="Kembali ke Halaman Utama"
+                android:textColor="#A0A0A0"
+                android:textSize="16sp"
+                tools:layout_editor_absoluteX="56dp"
+                tools:layout_editor_absoluteY="19dp" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="358dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="161dp"
+            android:layout_marginEnd="27dp"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:gravity="center"
+            android:text="Lupa Kata Sandi"
+            android:textColor="#101010"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="kode menuju ke email"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView4"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <EditText
+            android:id="@+id/IDSiswa"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/inputbergambar"
+            android:drawableStart="@drawable/email"
+            android:drawablePadding="12dp"
+            android:hint="Masukan Email Anda"
+            android:inputType="text"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView4"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="340dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="25dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:text="Untuk mengubah password menggunakan pin"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView4"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

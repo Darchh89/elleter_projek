@@ -16,8 +16,15 @@
         android:theme="@style/Theme.ELetterProjek"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".popup_lupa_sandi"
+            android:name=".LupakataSandiPage"
             android:exported="false" />
+        <activity
+            android:name=".kode_otp"
+            android:exported="false" />
+        <activity
+            android:name=".popup_lupa_sandi"
+            android:exported="false"
+            android:theme="@style/Theme.ELetterProjek.Popup" />
         <activity
             android:name=".Beranda"
             android:exported="false" />
