@@ -16,6 +16,9 @@
         android:theme="@style/Theme.ELetterProjek"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Panduan"
+            android:exported="false" />
+        <activity
             android:name=".LupakataSandiPage"
             android:exported="false" />
         <activity
